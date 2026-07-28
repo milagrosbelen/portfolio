@@ -1,6 +1,8 @@
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import profileImage from '../assets/milagros.png'
+import { ProfileModal } from '../components/ProfileModal'
 import { navigation } from '../data/navigation'
 import { SECTION_IDS } from '../lib/constants'
 import { useActiveSection } from '../hooks/useActiveSection'
@@ -10,17 +12,34 @@ const sectionIds = Object.values(SECTION_IDS)
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
   const activeSection = useActiveSection(sectionIds)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-100/80 bg-white/80 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
-        <a
-          href={`#${SECTION_IDS.hero}`}
-          className="font-display text-lg font-semibold tracking-tight text-foreground"
-        >
-          Milagros<span className="text-primary">.</span>
-        </a>
+    <header className="fixed inset-x-0 top-0 z-50 overflow-visible border-b border-slate-100/80 bg-white/80 backdrop-blur-xl">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between overflow-visible px-5 sm:px-6 lg:px-8">
+        <div className="relative flex items-center gap-2.5">
+          <button
+            type="button"
+            aria-label="Ver perfil"
+            onClick={() => setIsProfileOpen((open) => !open)}
+            className="rounded-full transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          >
+            <img
+              src={profileImage}
+              alt="Milagros"
+              className="h-9 w-9 rounded-full object-cover object-center ring-2 ring-slate-100"
+            />
+          </button>
+          <a
+            href={`#${SECTION_IDS.hero}`}
+            className="font-display text-lg font-semibold tracking-tight text-foreground"
+          >
+            milagros
+          </a>
+
+          <ProfileModal isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
+        </div>
 
         <div className="hidden items-center gap-1 md:flex">
           {navigation.map((item) => {
