@@ -15,12 +15,12 @@ export const profile: Profile = {
   social: [
     {
       label: 'GitHub',
-      href: 'https://github.com/milagrospedrasa',
+      href: 'https://github.com/milagrosbelen',
       icon: 'github',
     },
     {
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/milagrospedrasa',
+      href: 'https://www.linkedin.com/in/milagros-pedrasa-56801537a/',
       icon: 'linkedin',
     },
     {
