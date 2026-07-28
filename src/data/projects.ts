@@ -51,6 +51,5 @@ export const projects: Project[] = [
     accent: '#22c55e',
     gradient: 'from-green-500/20 via-emerald-400/10 to-lime-500/20',
     previewImage: '/projects/curmy-store-catalog.png',
-    galleryImages: ['/projects/curmy-store-product.png'],
   },
 ]
