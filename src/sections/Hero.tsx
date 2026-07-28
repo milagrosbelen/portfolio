@@ -66,7 +66,7 @@ export function Hero() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <Button href={`#${SECTION_IDS.projects}`}>Ver proyectos</Button>
-            <Button href={profile.cvUrl} variant="outline">
+            <Button href={profile.cvUrl} variant="outline" download="cv-milagros-pedrasa.pdf">
               Descargar CV
               <Download className="h-4 w-4" />
             </Button>

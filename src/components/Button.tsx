@@ -11,6 +11,7 @@ interface ButtonProps {
   size?: ButtonSize
   href?: string
   external?: boolean
+  download?: boolean | string
   className?: string
   type?: 'button' | 'submit' | 'reset'
   onClick?: () => void
@@ -38,6 +39,7 @@ export function Button({
   size = 'md',
   href,
   external,
+  download,
   className,
   type = 'button',
   onClick,
@@ -55,6 +57,7 @@ export function Button({
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
+        download={download}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={classes}

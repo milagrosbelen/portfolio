@@ -41,29 +41,34 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
               />
               <p className="font-display text-lg font-semibold">{project.name}</p>
             </div>
-            <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-white to-slate-100 p-8">
-              <div className="grid h-full grid-rows-[auto_1fr_auto] gap-4">
-                <div className="flex gap-2">
-                  <div className="h-8 flex-1 rounded-xl bg-white card-shadow" />
-                  <div className="h-8 w-24 rounded-xl bg-white card-shadow" />
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {[1, 2, 3].map((card) => (
-                    <div
-                      key={card}
-                      className="rounded-2xl bg-white card-shadow"
-                      style={{ opacity: 1 - card * 0.08 }}
-                    />
-                  ))}
-                </div>
-                <div className="flex gap-3">
-                  <div
-                    className="h-10 flex-1 rounded-xl"
-                    style={{ backgroundColor: `${project.accent}15` }}
-                  />
-                  <div className="h-10 w-28 rounded-xl bg-white card-shadow" />
-                </div>
+            <div
+              className={
+                project.galleryImages?.length
+                  ? 'grid grid-cols-1 gap-0 sm:grid-cols-[1.2fr_0.8fr]'
+                  : ''
+              }
+            >
+              <div className="aspect-[16/10] overflow-hidden bg-slate-950 sm:aspect-auto sm:min-h-[320px]">
+                <img
+                  src={project.previewImage}
+                  alt={`Captura de ${project.name}`}
+                  className="h-full w-full object-cover object-top"
+                  loading="lazy"
+                />
               </div>
+              {project.galleryImages?.map((image) => (
+                <div
+                  key={image}
+                  className="overflow-hidden border-t border-slate-100 bg-slate-950 sm:border-l sm:border-t-0"
+                >
+                  <img
+                    src={image}
+                    alt={`${project.name} — vista adicional`}
+                    className="h-full w-full object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>

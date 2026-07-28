@@ -1,25 +1,21 @@
 import { motion } from 'framer-motion'
-import { MapPin, Search, ShoppingBag, Wrench } from 'lucide-react'
 import { projects } from '../data/projects'
 
 const mockupConfig = [
   {
     id: 'spot',
-    icon: MapPin,
     position: 'left-[8%] top-[12%] z-20',
     rotate: -6,
     delay: 0.2,
   },
   {
     id: 'drivox',
-    icon: Wrench,
     position: 'right-[6%] top-[28%] z-30',
     rotate: 4,
     delay: 0.35,
   },
   {
     id: 'curmy-store',
-    icon: ShoppingBag,
     position: 'left-[18%] bottom-[10%] z-10',
     rotate: -2,
     delay: 0.5,
@@ -37,8 +33,6 @@ export function HeroMockups() {
         const project = projects.find((item) => item.id === config.id)
         if (!project) return null
 
-        const Icon = config.icon
-
         return (
           <motion.div
             key={config.id}
@@ -52,35 +46,26 @@ export function HeroMockups() {
             whileHover={{ y: -6, rotate: 0 }}
             className={`absolute w-[58%] sm:w-[52%] ${config.position}`}
           >
-            <div className="card-shadow-hover overflow-hidden rounded-[20px] border border-slate-100 bg-white">
+            <div className="card-shadow-hover overflow-hidden rounded-[20px] border border-slate-200/80 bg-slate-950">
               <div
-                className={`flex items-center justify-between border-b border-slate-100 bg-gradient-to-r ${project.gradient} px-4 py-3`}
+                className="flex items-center justify-between border-b border-white/10 px-4 py-2.5"
+                style={{ background: `linear-gradient(135deg, ${project.accent}18, transparent)` }}
               >
-                <div className="flex items-center gap-2">
-                  <div
-                    className="flex h-8 w-8 items-center justify-center rounded-xl text-white"
-                    style={{ backgroundColor: project.accent }}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">{project.name}</p>
-                    <p className="text-xs text-slate-500">Product preview</p>
-                  </div>
+                <p className="text-sm font-semibold text-white">{project.name}</p>
+                <div className="flex gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-white/20" />
+                  <span className="h-2 w-2 rounded-full bg-white/20" />
+                  <span className="h-2 w-2 rounded-full bg-white/20" />
                 </div>
-                <Search className="h-4 w-4 text-slate-400" />
               </div>
 
-              <div className="space-y-3 p-4">
-                <div className="h-24 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100" />
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="h-16 rounded-xl bg-slate-50" />
-                  <div className="h-16 rounded-xl bg-slate-50" />
-                </div>
-                <div className="flex gap-2">
-                  <div className="h-2 flex-1 rounded-full bg-slate-100" />
-                  <div className="h-2 w-12 rounded-full bg-primary/20" />
-                </div>
+              <div className="aspect-[9/16] overflow-hidden">
+                <img
+                  src={project.previewImage}
+                  alt={`Vista previa de ${project.name}`}
+                  className="h-full w-full object-cover object-top"
+                  loading="lazy"
+                />
               </div>
             </div>
           </motion.div>

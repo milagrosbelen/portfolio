@@ -12,10 +12,11 @@ export const projects: Project[] = [
     solution:
       'Diseñé y desarrollé un marketplace con búsqueda, categorías, perfiles de comercio y sistema de promociones, priorizando una UX clara y mobile-first.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST API'],
-    demoUrl: '#',
+    demoUrl: 'https://spot-gamma-bay.vercel.app/',
     githubUrl: 'https://github.com/milagrospedrasa',
-    accent: '#2563eb',
-    gradient: 'from-blue-500/20 via-blue-400/10 to-violet-500/20',
+    accent: '#84cc16',
+    gradient: 'from-lime-500/20 via-emerald-400/10 to-cyan-500/20',
+    previewImage: '/projects/spot-landing.png',
   },
   {
     id: 'drivox',
@@ -28,10 +29,11 @@ export const projects: Project[] = [
     solution:
       'Construí un panel administrativo con flujos optimizados para recepción de vehículos, seguimiento de reparaciones y control de stock.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST API'],
-    demoUrl: '#',
+    demoUrl: 'https://taller-app-fawn.vercel.app/',
     githubUrl: 'https://github.com/milagrospedrasa',
-    accent: '#7c3aed',
-    gradient: 'from-violet-500/20 via-purple-400/10 to-indigo-500/20',
+    accent: '#ef4444',
+    gradient: 'from-red-500/20 via-rose-400/10 to-orange-500/20',
+    previewImage: '/projects/drivox-landing.png',
   },
   {
     id: 'curmy-store',
@@ -44,9 +46,11 @@ export const projects: Project[] = [
     solution:
       'Creé un catálogo personalizado integrado al ecosistema Linkiame, con diseño responsive, gestión de productos y enfoque en conversión.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design', 'REST API'],
-    demoUrl: 'https://linkiame.com',
+    demoUrl: 'https://catalogo-curmy-store.vercel.app/',
     githubUrl: 'https://github.com/milagrospedrasa',
-    accent: '#0ea5e9',
-    gradient: 'from-sky-500/20 via-cyan-400/10 to-blue-500/20',
+    accent: '#22c55e',
+    gradient: 'from-green-500/20 via-emerald-400/10 to-lime-500/20',
+    previewImage: '/projects/curmy-store-catalog.png',
+    galleryImages: ['/projects/curmy-store-product.png'],
   },
 ]

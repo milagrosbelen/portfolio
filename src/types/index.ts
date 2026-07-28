@@ -25,6 +25,8 @@ export interface Project {
   githubUrl?: string
   accent: string
   gradient: string
+  previewImage: string
+  galleryImages?: string[]
 }
 
 export interface ExperienceItem {
