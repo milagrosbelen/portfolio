@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import profileImage from '../assets/milagros.png'
 import { ProfileModal } from '../components/ProfileModal'
@@ -15,8 +15,24 @@ export function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const activeSection = useActiveSection(sectionIds)
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 overflow-visible border-b border-slate-100/80 bg-white/80 backdrop-blur-xl">
+    <>
+      <header
+        className={cn(
+          'fixed inset-x-0 top-0 z-50 overflow-visible border-b border-slate-100/80 backdrop-blur-xl',
+          isOpen ? 'bg-white' : 'bg-white/80',
+        )}
+      >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between overflow-visible px-5 sm:px-6 lg:px-8">
         <div className="relative flex items-center gap-2.5">
           <button
@@ -79,6 +95,7 @@ export function Navbar() {
           <Menu className="h-5 w-5" />
         </button>
       </nav>
+      </header>
 
       <AnimatePresence>
         {isOpen && (
@@ -90,34 +107,34 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[90] bg-slate-900/50 backdrop-blur-[2px] md:hidden"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-xs border-l border-slate-100 bg-white p-6 md:hidden"
+              className="fixed inset-y-0 right-0 z-[100] flex w-full max-w-xs flex-col border-l border-slate-200 bg-white p-6 shadow-2xl md:hidden"
             >
-              <div className="flex items-center justify-between">
-                <span className="font-display text-lg font-semibold">Menú</span>
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <span className="font-display text-lg font-semibold text-foreground">Menú</span>
                 <button
                   type="button"
                   aria-label="Cerrar menú"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-foreground"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
 
-              <div className="mt-8 flex flex-col gap-2">
+              <div className="mt-6 flex flex-1 flex-col gap-1 overflow-y-auto">
                 {navigation.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="rounded-[20px] px-4 py-3 text-base font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-foreground"
+                    className="rounded-[20px] px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-slate-100"
                   >
                     {item.label}
                   </a>
@@ -125,7 +142,7 @@ export function Navbar() {
                 <a
                   href={`#${SECTION_IDS.contact}`}
                   onClick={() => setIsOpen(false)}
-                  className="mt-4 rounded-[20px] bg-primary px-4 py-3 text-center text-base font-medium text-white"
+                  className="mt-4 rounded-[20px] bg-primary px-4 py-3 text-center text-base font-medium text-white shadow-sm"
                 >
                   Contacto
                 </a>
@@ -134,6 +151,6 @@ export function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }
