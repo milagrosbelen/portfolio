@@ -1,15 +1,20 @@
-import type { Technology } from '../types'
+import type { TechGroup } from '../types'
 
-export const technologies: Technology[] = [
-  { name: 'React' },
-  { name: 'TypeScript' },
-  { name: 'JavaScript' },
-  { name: 'Tailwind CSS' },
-  { name: 'Git' },
-  { name: 'GitHub' },
-  { name: 'Vite' },
-  { name: 'PostgreSQL' },
-  { name: 'Node.js' },
-  { name: 'REST API' },
-  { name: 'Responsive Design' },
+export const techGroups: TechGroup[] = [
+  {
+    category: 'Frontend',
+    items: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Tailwind CSS'],
+  },
+  {
+    category: 'Backend',
+    items: ['Laravel', 'PHP', 'C#', 'REST API'],
+  },
+  {
+    category: 'Database',
+    items: ['PostgreSQL', 'SQL'],
+  },
+  {
+    category: 'Tools',
+    items: ['Git', 'GitHub', 'Vite'],
+  },
 ]

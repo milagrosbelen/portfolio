@@ -1,8 +1,19 @@
-import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { cn } from '../lib/utils'
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline'
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'inverse' | 'inverse-secondary'
+
+const variants: Record<ButtonVariant, string> = {
+  primary:
+    'bg-foreground text-white hover:bg-accent',
+  secondary:
+    'bg-transparent text-foreground border border-foreground/20 hover:border-foreground',
+  ghost: 'bg-transparent text-muted hover:text-foreground',
+  inverse: 'bg-white text-foreground hover:bg-white/90',
+  'inverse-secondary':
+    'bg-transparent text-white border border-white/25 hover:border-white',
+}
+
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface ButtonProps {
@@ -11,26 +22,15 @@ interface ButtonProps {
   size?: ButtonSize
   href?: string
   external?: boolean
-  download?: boolean | string
   className?: string
   type?: 'button' | 'submit' | 'reset'
   onClick?: () => void
 }
 
-const variants: Record<ButtonVariant, string> = {
-  primary:
-    'bg-primary text-white hover:bg-primary/90 shadow-sm shadow-primary/20',
-  secondary:
-    'bg-secondary text-white hover:bg-secondary/90 shadow-sm shadow-secondary/20',
-  ghost: 'bg-transparent text-foreground hover:bg-slate-100',
-  outline:
-    'bg-white text-foreground border border-slate-200 hover:border-slate-300 hover:bg-slate-50',
-}
-
 const sizes: Record<ButtonSize, string> = {
-  sm: 'h-9 px-4 text-sm',
-  md: 'h-11 px-5 text-sm',
-  lg: 'h-12 px-6 text-base',
+  sm: 'h-9 px-3.5 text-[12px] tracking-[0.14em] uppercase',
+  md: 'h-11 px-5 text-[13px] tracking-[0.12em] uppercase',
+  lg: 'h-12 px-6 text-[13px] tracking-[0.12em] uppercase',
 }
 
 export function Button({
@@ -39,13 +39,12 @@ export function Button({
   size = 'md',
   href,
   external,
-  download,
   className,
   type = 'button',
   onClick,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-[20px] font-medium transition-colors duration-200',
+    'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors duration-200',
     variants[variant],
     sizes[size],
     className,
@@ -53,29 +52,21 @@ export function Button({
 
   if (href) {
     return (
-      <motion.a
+      <a
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
-        download={download}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
         className={classes}
+        onClick={onClick}
       >
         {children}
-      </motion.a>
+      </a>
     )
   }
 
   return (
-    <motion.button
-      type={type}
-      onClick={onClick}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={classes}
-    >
+    <button type={type} onClick={onClick} className={classes}>
       {children}
-    </motion.button>
+    </button>
   )
 }

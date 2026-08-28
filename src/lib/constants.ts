@@ -1,17 +1,26 @@
 export const SITE = {
   name: 'Milagros Pedrasa',
-  title: 'Milagros Pedrasa — Desarrolladora Fullstack',
+  shortName: 'MILI',
+  title: 'MILI — Software Developer | Milagros Pedrasa',
   description:
-    'Construyo aplicaciones web enfocadas en productos digitales, marketplaces y experiencias modernas.',
+    'Desarrollo software, sitios web y herramientas digitales para transformar ideas y problemas reales en productos funcionales.',
   url: 'https://milagrospedrasa.vercel.app',
+  location: 'Córdoba, Argentina',
 } as const
 
 export const SECTION_IDS = {
   hero: 'inicio',
-  about: 'sobre-mi',
-  tech: 'tecnologias',
+  intro: 'presentacion',
   projects: 'proyectos',
-  experience: 'experiencia',
-  goals: 'objetivos',
+  tech: 'stack',
+  services: 'servicios',
+  about: 'sobre-mi',
+  process: 'proceso',
   contact: 'contacto',
 } as const
+
+const WHATSAPP_NUMBER = '5493515223831'
+const WHATSAPP_MESSAGE =
+  'Hola Milagros, te contacto desde tu portfolio. Quiero organizar un negocio/proyecto digital y coordinar una reunión con vos.'
+
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`

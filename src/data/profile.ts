@@ -1,22 +1,21 @@
+import { WHATSAPP_URL } from '../lib/constants'
 import type { Profile } from '../types'
 
 export const profile: Profile = {
   name: 'Milagros Pedrasa',
-  headline: 'Desarrolladora fullstack | Construyo software',
-  subheadline:
-    'Construyo aplicaciones web enfocadas en productos digitales, marketplaces y experiencias modernas.',
-  about: [
-    'Soy desarrolladora fullstack con experiencia construyendo productos digitales reales: marketplaces, catálogos online y sistemas de gestión. Me interesa el cruce entre tecnología, diseño y negocio.',
-    'Trabajo con enfoque en experiencia de usuario, código mantenible y entregas que generen impacto. Disfruto transformar ideas en productos funcionales, escalables y bien pensados.',
-    'Actualmente desarrollo en Linkiame, donde construyo soluciones web orientadas a comercios y emprendedores digitales.',
-  ],
+  shortName: 'MILI',
+  firstName: 'Milagros',
+  role: 'Software Developer',
+  location: 'Córdoba, Argentina',
   email: 'milagrospedrasa@gmail.com',
+  availability: 'Disponible para nuevos proyectos',
   cvUrl: '/cv-milagros-pedrasa.pdf',
+  whatsappUrl: WHATSAPP_URL,
   social: [
     {
-      label: 'GitHub',
-      href: 'https://github.com/milagrosbelen',
-      icon: 'github',
+      label: 'WhatsApp',
+      href: WHATSAPP_URL,
+      icon: 'whatsapp',
     },
     {
       label: 'LinkedIn',
@@ -24,9 +23,9 @@ export const profile: Profile = {
       icon: 'linkedin',
     },
     {
-      label: 'Email',
-      href: 'mailto:milagrospedrasa@gmail.com',
-      icon: 'mail',
+      label: 'GitHub',
+      href: 'https://github.com/milagrosbelen',
+      icon: 'github',
     },
   ],
 }

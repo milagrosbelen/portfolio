@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Download, Mail, X } from 'lucide-react'
+import { Mail, X } from 'lucide-react'
 import { useEffect } from 'react'
 import profileImage from '../assets/milagros.png'
 import { profile } from '../data/profile'
-import { GitHubIcon, LinkedInIcon } from './icons/BrandIcons'
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
 
 const linkIcons = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
-  mail: Mail,
+  whatsapp: WhatsAppIcon,
 } as const
 
 interface ProfileModalProps {
@@ -24,9 +24,11 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
       if (event.key === 'Escape') onClose()
     }
 
+    document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
+      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen, onClose])
@@ -42,7 +44,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-40 bg-black/20"
+            className="fixed inset-0 z-[110] bg-foreground/20"
           />
 
           <motion.div
@@ -53,13 +55,13 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ type: 'spring', damping: 28, stiffness: 360 }}
-            className="absolute left-0 top-[calc(100%+10px)] z-50 w-[min(92vw,320px)] overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-2xl shadow-slate-900/15"
+            className="absolute left-0 top-[calc(100%+10px)] z-[120] w-[min(92vw,320px)] overflow-hidden rounded-xl border border-line bg-surface shadow-[0_16px_40px_rgba(26,25,23,0.12)]"
           >
             <button
               type="button"
               aria-label="Cerrar"
               onClick={onClose}
-              className="absolute right-3 top-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-500 transition-colors hover:bg-white hover:text-foreground"
+              className="absolute right-3 top-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border border-line bg-surface text-muted transition-colors hover:text-foreground"
             >
               <X className="h-4 w-4" />
             </button>
@@ -68,16 +70,17 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
               <img
                 src={profileImage}
                 alt={profile.name}
-                className="h-28 w-28 shrink-0 rounded-full object-cover object-center ring-4 ring-slate-100"
+                className="h-28 w-28 shrink-0 rounded-full object-cover object-[50%_18%] ring-1 ring-line"
               />
 
               <h2
                 id="profile-modal-title"
-                className="mt-4 font-display text-xl font-semibold tracking-tight text-foreground"
+                className="mt-4 text-lg font-semibold tracking-tight text-foreground"
               >
                 {profile.name}
               </h2>
-              <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{profile.headline}</p>
+              <p className="mt-1 text-sm text-muted">{profile.role}</p>
+              <p className="mt-1 text-sm text-muted">{profile.location}</p>
 
               <div className="mt-5 flex w-full flex-col gap-2">
                 {profile.social.map((link) => {
@@ -90,7 +93,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={onClose}
-                      className="inline-flex items-center justify-center gap-2.5 rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-slate-300 hover:bg-white"
+                      className="inline-flex items-center justify-center gap-2.5 rounded-md border border-line bg-background px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30"
                     >
                       <Icon className="h-4 w-4 shrink-0" />
                       {link.label}
@@ -99,13 +102,12 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                 })}
 
                 <a
-                  href={profile.cvUrl}
-                  download="cv-milagros-pedrasa.pdf"
+                  href={`mailto:${profile.email}`}
                   onClick={onClose}
-                  className="inline-flex items-center justify-center gap-2.5 rounded-[20px] bg-primary px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-md border border-line bg-background px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30"
                 >
-                  <Download className="h-4 w-4 shrink-0" />
-                  Descargar CV
+                  <Mail className="h-4 w-4 shrink-0" />
+                  Email
                 </a>
               </div>
             </div>

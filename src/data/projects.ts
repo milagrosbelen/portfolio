@@ -2,54 +2,50 @@ import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
-    id: 'spot',
-    name: 'Spot',
-    tagline: 'Marketplace para descubrir comercios, promociones y servicios.',
-    description:
-      'Plataforma que conecta usuarios con comercios locales, centralizando promociones, servicios y descubrimiento de negocios en una experiencia moderna.',
-    problem:
-      'Los comercios locales carecían de un canal digital unificado para mostrar promociones y ser descubiertos por nuevos clientes.',
-    solution:
-      'Diseñé y desarrollé un marketplace con búsqueda, categorías, perfiles de comercio y sistema de promociones, priorizando una UX clara y mobile-first.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST API'],
-    demoUrl: 'https://spot-gamma-bay.vercel.app/',
-    githubUrl: 'https://github.com/milagrosbelen',
-    accent: '#84cc16',
-    gradient: 'from-lime-500/20 via-emerald-400/10 to-cyan-500/20',
-    previewImage: '/projects/spot-landing.png',
-  },
-  {
     id: 'drivox',
-    name: 'Drivox',
-    tagline: 'Sistema de gestión para talleres mecánicos.',
+    number: '01',
+    name: 'DRIVOX',
+    tagline: 'Sistema de gestión para talleres de motos',
     description:
-      'Software de gestión integral para talleres mecánicos: órdenes de trabajo, clientes, inventario y seguimiento operativo en un solo lugar.',
-    problem:
-      'Los talleres gestionaban turnos, repuestos y clientes con herramientas dispersas, generando pérdida de tiempo y errores operativos.',
-    solution:
-      'Construí un panel administrativo con flujos optimizados para recepción de vehículos, seguimiento de reparaciones y control de stock.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST API'],
+      'Una solución digital creada para centralizar la gestión de un taller y transformar procesos cotidianos en una herramienta organizada y fácil de utilizar.',
+    type: 'Software de gestión',
+    role: 'Full Stack Developer',
+    technologies: ['React', 'Laravel', 'PostgreSQL', 'Tailwind CSS'],
     demoUrl: 'https://taller-app-fawn.vercel.app/',
-    githubUrl: 'https://github.com/milagrosbelen',
-    accent: '#ef4444',
-    gradient: 'from-red-500/20 via-rose-400/10 to-orange-500/20',
-    previewImage: '/projects/drivox-landing.png',
+    layout: 'featured',
+    accent: '#E11D2E',
+    previewImage: '/projects/drivox-app.png',
+    galleryImages: [],
   },
   {
     id: 'curmy-store',
-    name: 'Curmy Store',
-    tagline: 'Catálogo online para tienda de ropa.',
+    number: '02',
+    name: 'CURMY.STORE',
+    tagline: 'E-commerce / experiencia digital para una marca de moda',
     description:
-      'Catálogo digital desarrollado dentro de Linkiame para una tienda de ropa, con navegación por categorías, productos destacados y experiencia de compra fluida.',
-    problem:
-      'La tienda necesitaba presencia online profesional sin depender de marketplaces externos, manteniendo su identidad de marca.',
-    solution:
-      'Creé un catálogo personalizado integrado al ecosistema Linkiame, con diseño responsive, gestión de productos y enfoque en conversión.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design', 'REST API'],
+      'Una experiencia digital desarrollada para una marca de moda y productos, enfocada en presentar el catálogo, mejorar la navegación y construir una presencia digital profesional.',
+    type: 'E-commerce / Web',
+    role: 'Diseño + Desarrollo',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'REST API'],
     demoUrl: 'https://catalogo-curmy-store.vercel.app/',
-    githubUrl: 'https://github.com/milagrosbelen',
-    accent: '#22c55e',
-    gradient: 'from-green-500/20 via-emerald-400/10 to-lime-500/20',
-    previewImage: '/projects/curmy-store-catalog.png',
+    layout: 'gallery',
+    accent: '#22C55E',
+    previewImage: '/projects/curmy-home.png',
+    galleryImages: ['/projects/curmy-store-catalog.png'],
+  },
+  {
+    id: 'milogit',
+    number: '03',
+    name: 'MILOGIT',
+    tagline: 'Gestión y seguimiento de entrenamiento',
+    description:
+      'Una aplicación desarrollada para organizar y realizar seguimiento de entrenamientos de forma digital.',
+    type: 'Aplicación Web',
+    role: 'Desarrollo',
+    technologies: [],
+    layout: 'app',
+    accent: '#FF5C00',
+    previewImage: '/projects/milogit-app.png',
+    galleryImages: [],
   },
 ]

@@ -1,41 +1,79 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/milagros.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F4F2EE" />
+    <link rel="canonical" href="https://milagrospedrasa.vercel.app/" />
 
-    <title>Milagros Pedrasa — Desarrolladora Fullstack</title>
+    <title>MILI — Software Developer | Milagros Pedrasa</title>
     <meta
       name="description"
-      content="Desarrolladora fullstack especializada en productos digitales, marketplaces y experiencias web modernas. React, TypeScript, Node.js."
+      content="Desarrollo software, sitios web y herramientas digitales para transformar ideas y problemas reales en productos funcionales."
     />
     <meta name="author" content="Milagros Pedrasa" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta
+      name="keywords"
+      content="Milagros Pedrasa, desarrolladora de software, Córdoba, software a medida, desarrollo web, aplicaciones"
+    />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Milagros Pedrasa — Desarrolladora Fullstack" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:url" content="https://milagrospedrasa.vercel.app/" />
+    <meta property="og:site_name" content="MILI" />
+    <meta property="og:title" content="MILI — Software Developer" />
     <meta
       property="og:description"
-      content="Construyo aplicaciones web enfocadas en productos digitales, marketplaces y experiencias modernas."
+      content="Desarrollo software, sitios web y herramientas digitales para transformar ideas y problemas reales en productos funcionales."
     />
-    <meta property="og:locale" content="es_AR" />
+    <meta property="og:image" content="https://milagrospedrasa.vercel.app/milagros.png" />
+    <meta property="og:image:alt" content="Milagros Pedrasa, desarrolladora de software" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Milagros Pedrasa — Desarrolladora Fullstack" />
+    <meta name="twitter:title" content="MILI — Software Developer" />
     <meta
       name="twitter:description"
-      content="Construyo aplicaciones web enfocadas en productos digitales, marketplaces y experiencias modernas."
+      content="Desarrollo software, sitios web y herramientas digitales para transformar ideas y problemas reales en productos funcionales."
     />
+    <meta name="twitter:image" content="https://milagrospedrasa.vercel.app/milagros.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Milagros Pedrasa",
+        "alternateName": "MILI",
+        "jobTitle": "Software Developer",
+        "description": "Desarrollo software, sitios web y herramientas digitales para transformar ideas y problemas reales en productos funcionales.",
+        "url": "https://milagrospedrasa.vercel.app/",
+        "image": "https://milagrospedrasa.vercel.app/milagros.png",
+        "email": "mailto:milagrospedrasa@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Córdoba",
+          "addressCountry": "AR"
+        },
+        "sameAs": [
+          "https://github.com/milagrosbelen",
+          "https://www.linkedin.com/in/milagros-pedrasa-56801537a/"
+        ]
+      }
+    </script>
   </head>
   <body>
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search)
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,23 +1,25 @@
+import { FadeIn } from '../components/AnimatedSection'
+import { ProjectCase } from '../components/ProjectCase'
 import { SectionHeader } from '../components/SectionHeader'
-import { ProjectShowcase } from '../components/ProjectShowcase'
 import { projects } from '../data/projects'
 import { SECTION_IDS } from '../lib/constants'
 
 export function Projects() {
   return (
-    <section id={SECTION_IDS.projects} className="scroll-mt-24 py-24 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Proyectos"
-          title="Productos que resuelven problemas reales"
-          description="Cada proyecto nace de una necesidad concreta: descubrir comercios, gestionar operaciones o vender online."
-        />
+    <section id={SECTION_IDS.projects} className="bg-background">
+      <div className="site-container pt-24 pb-16 sm:pt-28 sm:pb-20">
+        <FadeIn>
+          <SectionHeader
+            title="Proyectos seleccionados"
+            description="Productos y soluciones digitales que desarrollé."
+          />
+        </FadeIn>
+      </div>
 
-        <div className="mt-8 divide-y divide-slate-100">
-          {projects.map((project, index) => (
-            <ProjectShowcase key={project.id} project={project} index={index} />
-          ))}
-        </div>
+      <div>
+        {projects.map((project) => (
+          <ProjectCase key={project.id} project={project} />
+        ))}
       </div>
     </section>
   )

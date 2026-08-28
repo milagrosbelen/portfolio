@@ -3,47 +3,60 @@ export interface NavLink {
   href: string
 }
 
+export type SocialIcon = 'github' | 'linkedin' | 'whatsapp'
+
 export interface SocialLink {
   label: string
   href: string
-  icon: 'github' | 'linkedin' | 'mail'
+  icon: SocialIcon
 }
 
-export interface Technology {
-  name: string
+export interface TechGroup {
+  category: string
+  items: string[]
 }
+
+export type ProjectLayout = 'featured' | 'gallery' | 'app'
 
 export interface Project {
   id: string
+  number: string
   name: string
   tagline: string
   description: string
-  problem: string
-  solution: string
+  type: string
+  role: string
   technologies: string[]
   demoUrl?: string
-  githubUrl?: string
+  layout: ProjectLayout
   accent: string
-  gradient: string
   previewImage: string
-  galleryImages?: string[]
+  galleryImages: string[]
 }
 
-export interface ExperienceItem {
+export interface Service {
   id: string
-  role: string
-  company: string
-  period: string
+  number: string
+  title: string
   description: string
-  highlights: string[]
+}
+
+export interface ProcessStep {
+  number: string
+  title: string
+  description: string
+  emoji: string
 }
 
 export interface Profile {
   name: string
-  headline: string
-  subheadline: string
-  about: string[]
+  shortName: string
+  firstName: string
+  role: string
+  location: string
   email: string
+  availability: string
   cvUrl: string
+  whatsappUrl: string
   social: SocialLink[]
 }

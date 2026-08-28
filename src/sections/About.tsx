@@ -1,37 +1,47 @@
-import { motion } from 'framer-motion'
-import { AnimatedSection, fadeUpItem } from '../components/AnimatedSection'
-import { SectionHeader } from '../components/SectionHeader'
-import { profile } from '../data/profile'
+import { FadeIn } from '../components/AnimatedSection'
 import { SECTION_IDS } from '../lib/constants'
+import profileImage from '../assets/milagros.png'
 
 export function About() {
   return (
-    <AnimatedSection
-      id={SECTION_IDS.about}
-      className="border-t border-slate-100 py-24 sm:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Sobre mí"
-          title="Construyo productos digitales con visión de negocio"
-          description="Combino desarrollo fullstack con sensibilidad por la experiencia de usuario y el impacto real en el producto."
-        />
+    <section id={SECTION_IDS.about} className="bg-mist section-space">
+      <div className="site-container text-center">
+        <FadeIn className="mx-auto max-w-2xl">
+          <div className="inline-flex items-center justify-center gap-3">
+            <figure className="h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-black/10">
+              <img
+                src={profileImage}
+                alt="Milagros Pedrasa"
+                className="h-full w-full object-cover object-[50%_18%]"
+                loading="lazy"
+              />
+            </figure>
+            <h2 className="whitespace-nowrap text-[15px] font-semibold uppercase tracking-[0.16em] text-foreground">
+              Sobre mí
+            </h2>
+          </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {profile.about.map((paragraph, index) => (
-            <motion.div
-              key={paragraph}
-              variants={fadeUpItem}
-              className="card-shadow rounded-[20px] border border-slate-100 bg-white p-6 transition-shadow duration-300 hover:card-shadow-hover sm:p-8"
-            >
-              <span className="font-display text-sm font-semibold text-primary">
-                0{index + 1}
-              </span>
-              <p className="mt-4 text-base leading-relaxed text-slate-600">{paragraph}</p>
-            </motion.div>
-          ))}
-        </div>
+          <div className="mx-auto mt-8 max-w-xl space-y-4 text-sm leading-relaxed text-muted sm:text-[15px]">
+            <p>
+              En 2023 empecé a formarme en desarrollo con cursos, con constancia
+              y muchas horas de práctica. En 2025 entré a la Facultad Cervantes,
+              en la carrera de Desarrollo Web y Aplicaciones Digitales, que
+              sigo cursando.
+            </p>
+            <p className="text-foreground">
+              Soy detallada, perseverante y muy comprometida con lo que hago.
+              Me tomo cada proyecto en serio: escucho, organizo y no suelto
+              hasta que queda bien.
+            </p>
+            <p>
+              Trabajo con claridad y responsabilidad. Me gusta ser honesta con
+              los tiempos, comunicar cómo va todo y cuidar cada detalle. Para
+              mí esto no es solo un oficio: le pongo tiempo, atención y ganas
+              de mejorar todos los días.
+            </p>
+          </div>
+        </FadeIn>
       </div>
-    </AnimatedSection>
+    </section>
   )
 }

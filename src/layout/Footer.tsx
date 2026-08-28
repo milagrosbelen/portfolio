@@ -1,35 +1,41 @@
+import { navigation } from '../data/navigation'
 import { profile } from '../data/profile'
 import { SECTION_IDS } from '../lib/constants'
-import { SocialLinks } from '../components/SocialLinks'
+
+const footerLinks = [
+  ...navigation,
+  { label: 'Contacto', href: `#${SECTION_IDS.contact}` },
+]
 
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
-    <footer className="border-t border-slate-100 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-          <div>
-            <p className="font-display text-xl font-semibold text-foreground">
-              {profile.name}
-            </p>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-500">
-              Desarrolladora fullstack construyendo productos digitales con enfoque en
-              experiencia, negocio e impacto real.
-            </p>
-          </div>
-          <SocialLinks links={profile.social} />
-        </div>
+    <footer data-nav-theme="dark" className="border-t border-white/10 bg-ink">
+      <div className="site-container py-12 text-center">
+        <p className="text-[13px] font-semibold tracking-[0.04em] text-white">
+          {profile.firstName}
+        </p>
+        <p className="mt-2 text-sm text-white/45">
+          {profile.role} · {profile.location}
+        </p>
 
-        <div className="flex flex-col gap-4 border-t border-slate-100 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {profile.name}. Todos los derechos reservados.</p>
-          <a
-            href={`#${SECTION_IDS.hero}`}
-            className="font-medium text-primary transition-colors hover:text-primary/80"
-          >
-            Volver arriba
-          </a>
-        </div>
+        <nav
+          aria-label="Footer"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+        >
+          {footerLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-white/45 transition-colors hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <p className="mt-10 text-[12px] text-white/35">
+          © {new Date().getFullYear()} {profile.name}
+        </p>
       </div>
     </footer>
   )
