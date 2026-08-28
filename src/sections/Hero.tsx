@@ -20,7 +20,7 @@ function HeroPhones() {
         eager
         float={false}
         shadow="hero"
-        className="relative z-10 w-[118px] -mr-8 -rotate-[6deg] sm:w-[152px] sm:-mr-10 lg:w-[180px] lg:-mr-12"
+        className="relative z-10 w-[138px] -mr-12 -rotate-[6deg] sm:w-[152px] sm:-mr-10 lg:w-[180px] lg:-mr-12"
       />
       <PhoneMockup
         src={curmy.previewImage}
@@ -28,7 +28,7 @@ function HeroPhones() {
         eager
         float={false}
         shadow="hero"
-        className="relative z-20 w-[132px] sm:w-[172px] lg:w-[204px]"
+        className="relative z-20 w-[156px] sm:w-[172px] lg:w-[204px]"
       />
       <PhoneMockup
         src={milogit.previewImage}
@@ -36,7 +36,7 @@ function HeroPhones() {
         eager
         float={false}
         shadow="hero"
-        className="relative z-10 w-[118px] -ml-8 rotate-[6deg] sm:w-[152px] sm:-ml-10 lg:w-[180px] lg:-ml-12"
+        className="relative z-10 w-[138px] -ml-12 rotate-[6deg] sm:w-[152px] sm:-ml-10 lg:w-[180px] lg:-ml-12"
       />
     </div>
   )
