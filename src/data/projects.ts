@@ -31,7 +31,7 @@ export const projects: Project[] = [
     layout: 'gallery',
     accent: '#22C55E',
     previewImage: '/projects/curmy-home.png',
-    galleryImages: ['/projects/curmy-store-catalog.png'],
+    galleryImages: [],
   },
   {
     id: 'milogit',

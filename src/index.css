@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Instrument Serif", "Times New Roman", serif;
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
 
   --color-background: #f4f2ee;
   --color-foreground: #1a1917;
@@ -75,8 +75,11 @@
     text-wrap: balance;
   }
 
-  .label {
-    @apply text-[11px] font-medium uppercase tracking-[0.18em];
+  .phone-screen {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 19;
+    overflow: hidden;
   }
 
   .phone-float {
