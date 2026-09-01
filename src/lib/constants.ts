@@ -10,9 +10,7 @@ export const SITE = {
 
 export const SECTION_IDS = {
   hero: 'inicio',
-  intro: 'presentacion',
   projects: 'proyectos',
-  tech: 'stack',
   services: 'servicios',
   about: 'sobre-mi',
   process: 'proceso',

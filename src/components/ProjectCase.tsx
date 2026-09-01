@@ -29,7 +29,7 @@ export function ProjectCase({ project }: ProjectCaseProps) {
       data-nav-theme="dark"
       className="overflow-x-hidden"
       style={{
-        background: `linear-gradient(180deg, color-mix(in srgb, ${project.accent} 16%, #0a0a0a) 0%, #0a0a0a 42%)`,
+        background: `linear-gradient(180deg, color-mix(in srgb, ${project.accent} 12%, #0c0c0c) 0%, #0c0c0c 48%)`,
       }}
     >
       <div className="site-container py-10 md:py-14 lg:py-16">
