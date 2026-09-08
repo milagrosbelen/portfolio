@@ -10,18 +10,22 @@ export function Contact() {
     <section
       id={SECTION_IDS.contact}
       data-nav-theme="dark"
-      className="relative overflow-hidden bg-charcoal section-space"
+      className="relative overflow-hidden bg-ink section-space"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(61,79,69,0.28),transparent_58%)]"
+        className="pointer-events-none absolute top-0 left-1/2 h-72 w-[28rem] -translate-x-1/2 rounded-full bg-accent/25 blur-[130px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-24 left-1/2 h-80 w-[32rem] -translate-x-1/2 rounded-full bg-accent/20 blur-[140px]"
       />
       <div className="site-container relative text-center">
         <FadeIn className="mx-auto max-w-2xl">
           <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-white/45">
             Contacto
           </p>
-          <h2 className="mt-5 font-display text-[2.6rem] leading-[1.08] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.6rem]">
+          <h2 className="mt-5 font-display text-[2.6rem] leading-[1.05] font-bold tracking-[-0.05em] text-white sm:text-5xl lg:text-[3.6rem]">
             ¿Tenés una idea?
           </h2>
           <p className="mx-auto mt-5 max-w-md text-[15px] leading-relaxed text-white/60 sm:text-base">

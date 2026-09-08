@@ -21,7 +21,7 @@ export function PhoneMockup({
 }: PhoneMockupProps) {
   return (
     <div
-      className={cn('shrink-0', className ?? 'w-[200px] sm:w-[230px]')}
+      className={cn(className ?? 'w-[200px] shrink-0 sm:w-[230px]')}
     >
       <div
         className={cn(

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
+import { MapPin, Wifi } from 'lucide-react'
 import { Button } from '../components/Button'
-import { PhoneMockup } from '../components/DeviceFrame'
+import { PhoneCarousel } from '../components/PhoneCarousel'
 import { projects } from '../data/projects'
 import { profile } from '../data/profile'
 import { SECTION_IDS } from '../lib/constants'
@@ -12,34 +13,7 @@ function HeroPhones() {
 
   if (!drivox || !curmy || !milogit) return null
 
-  return (
-    <div className="flex items-center justify-center overflow-visible px-1 pt-3 pb-12 sm:pb-14 lg:pt-2 lg:pb-6">
-      <PhoneMockup
-        src={drivox.previewImage}
-        alt={`${drivox.name} — aplicación`}
-        eager
-        float={false}
-        shadow="hero"
-        className="relative z-10 w-[138px] -mr-12 -rotate-[6deg] sm:w-[152px] sm:-mr-10 lg:w-[180px] lg:-mr-12"
-      />
-      <PhoneMockup
-        src={curmy.previewImage}
-        alt={`${curmy.name} — aplicación`}
-        eager
-        float={false}
-        shadow="hero"
-        className="relative z-20 w-[156px] sm:w-[172px] lg:w-[204px]"
-      />
-      <PhoneMockup
-        src={milogit.previewImage}
-        alt={`${milogit.name} — aplicación`}
-        eager
-        float={false}
-        shadow="hero"
-        className="relative z-10 w-[138px] -ml-12 rotate-[6deg] sm:w-[152px] sm:-ml-10 lg:w-[180px] lg:-ml-12"
-      />
-    </div>
-  )
+  return <PhoneCarousel phones={[drivox, curmy, milogit]} />
 }
 
 export function Hero() {
@@ -48,34 +22,27 @@ export function Hero() {
       id={SECTION_IDS.hero}
       className="relative z-10 bg-background scroll-mt-0 pt-16 pb-14 sm:pb-16 lg:pb-16"
     >
-      <div className="site-container grid items-center gap-8 py-8 sm:gap-10 sm:py-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 lg:py-14">
-        <div className="text-center lg:max-w-xl lg:text-left">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-[11px] font-medium uppercase tracking-[0.2em] text-muted sm:text-[12px]"
-          >
-            {profile.role}
-          </motion.p>
-
+      <div className="site-container grid items-center gap-8 py-8 sm:gap-10 sm:py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-12 lg:py-14">
+        <div className="text-center lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="font-display mt-5 text-[2.15rem] leading-[1.12] font-semibold tracking-[-0.045em] text-foreground text-balance sm:mt-6 sm:text-[3.1rem] lg:text-[3.35rem]"
+            className="font-display text-[2.05rem] leading-[1.08] font-bold tracking-[-0.05em] text-foreground text-balance sm:mt-0 sm:text-[3rem] lg:text-[3.25rem]"
           >
-            Convierto ideas en{' '}
-            <span className="text-accent">soluciones digitales.</span>
+            Construyo productos digitales que resuelven{' '}
+            <span className="text-accent">problemas reales.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.14 }}
-            className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-muted sm:mt-5 sm:text-base lg:mx-0"
+            className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted sm:mt-6 sm:text-base lg:mx-0"
           >
-            Software y productos digitales para negocios reales.
+            Desarrollo aplicaciones web, móviles y soluciones a medida para
+            emprendedores, startups y empresas que quieren llevar sus ideas al
+            siguiente nivel.
           </motion.p>
 
           <motion.div
@@ -91,6 +58,29 @@ export function Hero() {
               Hablemos
             </Button>
           </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.28 }}
+            className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start"
+          >
+            <li className="inline-flex items-center gap-1.5 text-[12px] text-muted sm:text-[13px]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-lime opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
+              </span>
+              {profile.availability}
+            </li>
+            <li className="inline-flex items-center gap-1.5 text-[12px] text-muted sm:text-[13px]">
+              <MapPin className="h-3.5 w-3.5 text-foreground/55" aria-hidden="true" />
+              {profile.location}
+            </li>
+            <li className="inline-flex items-center gap-1.5 text-[12px] text-muted sm:text-[13px]">
+              <Wifi className="h-3.5 w-3.5 text-foreground/55" aria-hidden="true" />
+              Remoto
+            </li>
+          </motion.ul>
         </div>
 
         <HeroPhones />

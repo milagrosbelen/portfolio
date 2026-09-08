@@ -8,7 +8,7 @@ export const profile: Profile = {
   role: 'Software Developer',
   location: 'Córdoba, Argentina',
   email: 'milagrospedrasa1@gmail.com',
-  availability: 'Disponible para nuevos proyectos',
+  availability: 'Disponible para proyectos',
   cvUrl: '/cv-milagros-pedrasa.pdf',
   whatsappUrl: WHATSAPP_URL,
   social: [

@@ -16,36 +16,32 @@ export interface TechGroup {
   items: string[]
 }
 
-export type ProjectLayout = 'featured' | 'gallery' | 'app'
-
 export interface Project {
   id: string
   number: string
   name: string
   tagline: string
-  description: string
-  type: string
-  role: string
-  technologies: string[]
+  origin: 'Para un negocio' | 'Propio' | 'Colaboración'
+  problem: string
+  solution: string
+  work: string
   demoUrl?: string
-  layout: ProjectLayout
   accent: string
   previewImage: string
-  galleryImages: string[]
 }
 
-export interface Service {
-  id: string
-  number: string
+export interface TimelineItem {
+  year: string
   title: string
   description: string
+  current?: boolean
 }
 
 export interface ProcessStep {
   number: string
   title: string
   description: string
-  emoji: string
+  icon: 'understand' | 'design' | 'build' | 'improve'
 }
 
 export interface Profile {
