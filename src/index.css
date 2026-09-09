@@ -154,15 +154,44 @@
 
   .hero-grain {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-    opacity: 0.22;
+    opacity: 0.18;
   }
 
-  .hero-grid {
+  .hero-nebula {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 42%, rgba(99, 91, 255, 0.32), transparent 62%),
+      radial-gradient(ellipse 45% 40% at 18% 80%, rgba(76, 29, 149, 0.28), transparent 58%),
+      radial-gradient(ellipse 40% 35% at 88% 18%, rgba(124, 58, 237, 0.2), transparent 55%),
+      radial-gradient(ellipse 80% 70% at 50% 100%, rgba(99, 91, 255, 0.16), transparent 70%);
+  }
+
+  .hero-stars {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+      radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.85), transparent),
+      radial-gradient(1px 1px at 28% 64%, rgba(196, 181, 253, 0.8), transparent),
+      radial-gradient(1.5px 1.5px at 47% 18%, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 63% 72%, rgba(167, 139, 250, 0.75), transparent),
+      radial-gradient(1px 1px at 81% 34%, rgba(255, 255, 255, 0.65), transparent),
+      radial-gradient(1.5px 1.5px at 8% 78%, rgba(196, 181, 253, 0.55), transparent),
+      radial-gradient(1px 1px at 91% 58%, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 38% 88%, rgba(167, 139, 250, 0.6), transparent),
+      radial-gradient(1px 1px at 72% 12%, rgba(255, 255, 255, 0.55), transparent),
+      radial-gradient(1.5px 1.5px at 55% 46%, rgba(224, 231, 255, 0.5), transparent);
+    opacity: 0.85;
+  }
+
+  .hero-graph {
+    background-image:
+      linear-gradient(rgba(99, 91, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 91, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(99, 91, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 91, 255, 0.22) 1px, transparent 1px);
+    background-size:
+      28px 28px,
+      28px 28px,
+      140px 140px,
+      140px 140px;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 48%, black 18%, transparent 78%);
   }
 
   .hero-orb {
@@ -171,35 +200,6 @@
 
   .hero-orb-delayed {
     animation: hero-orb 13s ease-in-out infinite 1.8s;
-  }
-
-  .hero-bokeh {
-    animation: hero-bokeh 7.5s ease-in-out infinite;
-  }
-
-  .hero-card-float {
-    animation: hero-card-float 6.4s ease-in-out infinite;
-  }
-
-  .hero-card-float-delayed {
-    animation: hero-card-float 7.2s ease-in-out infinite 0.9s;
-  }
-
-  .hero-photo-air {
-    -webkit-mask-image: radial-gradient(
-      ellipse 86% 78% at 50% 52%,
-      #000 20%,
-      rgba(0, 0, 0, 0.88) 46%,
-      rgba(0, 0, 0, 0.35) 66%,
-      transparent 80%
-    );
-    mask-image: radial-gradient(
-      ellipse 86% 78% at 50% 52%,
-      #000 20%,
-      rgba(0, 0, 0, 0.88) 46%,
-      rgba(0, 0, 0, 0.35) 66%,
-      transparent 80%
-    );
   }
 }
 
@@ -259,24 +259,3 @@
   }
 }
 
-@keyframes hero-bokeh {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.55;
-  }
-  50% {
-    transform: scale(1.18);
-    opacity: 0.95;
-  }
-}
-
-@keyframes hero-card-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
