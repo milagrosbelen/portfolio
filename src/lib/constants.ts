@@ -19,6 +19,6 @@ export const SECTION_IDS = {
 
 const WHATSAPP_NUMBER = '5493515223831'
 const WHATSAPP_MESSAGE =
-  'Hola Milagros, te contacto desde tu portfolio. Quiero organizar un negocio/proyecto digital y coordinar una reunión con vos.'
+  'Hola Milagros, te contacto desde tu portfolio. Me interesa conversar sobre un proyecto.'
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
