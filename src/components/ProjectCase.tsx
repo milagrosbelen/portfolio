@@ -40,6 +40,17 @@ function CaseStep({
 }
 
 export function ProjectCase({ project, isLast = false }: ProjectCaseProps) {
+  const phone = (
+    <PhoneMockup
+      src={project.previewImage}
+      alt={`${project.name} — aplicación`}
+      eager
+      float={false}
+      shadow="project"
+      className="relative z-10 w-full"
+    />
+  )
+
   return (
     <article className="relative grid grid-cols-[18px_minmax(0,1fr)] gap-5 sm:grid-cols-[22px_minmax(0,1fr)] sm:gap-7">
       <div className="relative flex h-full min-h-full flex-col items-center pt-2" aria-hidden="true">
@@ -66,63 +77,62 @@ export function ProjectCase({ project, isLast = false }: ProjectCaseProps) {
           }}
         />
 
-        <div className="relative px-5 pt-8 sm:px-8 sm:pt-10">
-          <span className="inline-flex rounded-full bg-lime px-3 py-1 text-[11px] font-semibold text-foreground">
-            {project.origin}
-          </span>
+        <div className="relative px-5 pt-8 sm:px-8 sm:pt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-12 lg:px-10 lg:pt-12 lg:pb-2">
+          <div className="min-w-0">
+            <span className="inline-flex rounded-full bg-lime px-3 py-1 text-[11px] font-semibold text-foreground">
+              {project.origin}
+            </span>
 
-          <div className="mt-4 flex items-center gap-3">
-            <h3 className="font-display text-[1.85rem] font-bold tracking-[-0.045em] text-white sm:text-[2.4rem]">
-              {project.name}
-            </h3>
-            {project.demoUrl ? (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Ver ${project.name}`}
-                className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white hover:bg-white hover:text-foreground"
-              >
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-            ) : null}
-          </div>
-
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/60">
-            {project.tagline}
-          </p>
-
-          <div className="relative mx-auto mt-8 w-[176px] sm:mx-0 sm:w-[200px]">
-            <PhoneMockup
-              src={project.previewImage}
-              alt={`${project.name} — aplicación`}
-              eager
-              float={false}
-              shadow="project"
-              className="relative z-10 w-full"
-            />
-          </div>
-
-          <div className="mt-10 max-w-lg space-y-7">
-            <CaseStep number="01" title="El problema" accent={project.accent}>
-              {project.problem}
-            </CaseStep>
-
-            <div className="flex justify-start pl-[9px]" aria-hidden="true">
-              <ArrowDown className="h-4 w-4 text-white/25" />
+            <div className="mt-4 flex items-center gap-3">
+              <h3 className="font-display text-[1.85rem] font-bold tracking-[-0.045em] text-white sm:text-[2.4rem]">
+                {project.name}
+              </h3>
+              {project.demoUrl ? (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ver ${project.name}`}
+                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white hover:bg-white hover:text-foreground"
+                >
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              ) : null}
             </div>
 
-            <CaseStep number="02" title="La solución" accent={project.accent}>
-              {project.solution}
-            </CaseStep>
+            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/60">
+              {project.tagline}
+            </p>
 
-            <div className="flex justify-start pl-[9px]" aria-hidden="true">
-              <ArrowDown className="h-4 w-4 text-white/25" />
+            <div className="relative mx-auto mt-8 w-[176px] sm:mx-0 sm:w-[200px] lg:hidden">
+              {phone}
             </div>
 
-            <CaseStep number="03" title="Mi trabajo" accent={project.accent}>
-              {project.work}
-            </CaseStep>
+            <div className="mt-10 max-w-lg space-y-7 lg:mt-12">
+              <CaseStep number="01" title="El problema" accent={project.accent}>
+                {project.problem}
+              </CaseStep>
+
+              <div className="flex justify-start pl-[9px]" aria-hidden="true">
+                <ArrowDown className="h-4 w-4 text-white/25" />
+              </div>
+
+              <CaseStep number="02" title="La solución" accent={project.accent}>
+                {project.solution}
+              </CaseStep>
+
+              <div className="flex justify-start pl-[9px]" aria-hidden="true">
+                <ArrowDown className="h-4 w-4 text-white/25" />
+              </div>
+
+              <CaseStep number="03" title="Mi trabajo" accent={project.accent}>
+                {project.work}
+              </CaseStep>
+            </div>
+          </div>
+
+          <div className="hidden lg:sticky lg:top-28 lg:block lg:w-[200px] xl:w-[220px]">
+            {phone}
           </div>
         </div>
       </div>

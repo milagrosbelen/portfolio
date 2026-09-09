@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { MapPin, Wifi } from 'lucide-react'
 import { Button } from '../components/Button'
+import { SpaceBackdrop } from '../components/SpaceBackdrop'
 import { profile } from '../data/profile'
 import { SECTION_IDS } from '../lib/constants'
 
@@ -13,40 +14,7 @@ export function Hero() {
       data-nav-theme="dark"
       className="relative z-10 isolate flex h-[100svh] max-h-[100svh] flex-col overflow-hidden bg-[#07060f] scroll-mt-0 pt-16"
     >
-      <div
-        aria-hidden="true"
-        className="hero-nebula pointer-events-none absolute inset-0"
-      />
-      <div
-        aria-hidden="true"
-        className="hero-stars pointer-events-none absolute inset-0"
-      />
-      <div
-        aria-hidden="true"
-        className="hero-graph pointer-events-none absolute inset-0"
-      />
-      <div
-        aria-hidden="true"
-        className="hero-grain pointer-events-none absolute inset-0 mix-blend-overlay"
-      />
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-[8%] h-28 w-full opacity-50 sm:h-36"
-        viewBox="0 0 1200 160"
-        fill="none"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0 110 C 80 108, 120 40, 200 72 S 320 150, 400 96 S 560 20, 640 88 S 800 150, 900 70 S 1040 30, 1200 84"
-          stroke="rgba(99,91,255,0.45)"
-          strokeWidth="1.4"
-        />
-        <path
-          d="M0 128 C 100 120, 160 90, 240 108 S 400 150, 520 118 S 700 70, 820 112 S 980 140, 1200 100"
-          stroke="rgba(167,139,250,0.28)"
-          strokeWidth="1"
-        />
-      </svg>
+      <SpaceBackdrop />
 
       <div className="site-container relative flex flex-1 flex-col items-center justify-center">
         <div className="mx-auto w-full max-w-3xl text-center">
