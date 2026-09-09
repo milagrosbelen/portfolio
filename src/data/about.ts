@@ -2,11 +2,7 @@ import type { TimelineItem } from '../types'
 
 export const aboutCopy = {
   title: 'Sobre mí',
-  paragraphs: [
-    'Trabajo escuchando primero. Entiendo el problema, ordeno lo que hay que hacer y no suelto hasta que el producto se puede usar. Me gusta ser clara con los tiempos y comunicar cómo va todo: sin vueltas y con responsabilidad.',
-    'Valoro la constancia, el detalle y la honestidad. Un buen software no empieza en el código: empieza en entender para quién es y qué tiene que resolver. Esa es la forma en la que me formé y la forma en la que construyo.',
-    'Me inspira ver una idea —o un proceso desordenado— convertirse en una herramienta que alguien usa de verdad. Aspiro a seguir creciendo como desarrolladora con criterio de producto: alguien que una empresa quiera conocer por el potencial, y alguien a quien un negocio pueda confiarle llevar una idea al siguiente nivel.',
-  ],
+  text: 'Soy detallada y perseverante: si algo no cierra, lo retomo hasta que queda bien. Cuando programo me tomo el proyecto en serio, cuido cada pantalla y soy honesta con los tiempos. Me gusta ser clara, pedir lo que necesito y comunicar cómo va todo. Esto no es solo un oficio: le pongo atención, constancia y ganas de mejorar todos los días.',
 }
 
 export const timeline: TimelineItem[] = [

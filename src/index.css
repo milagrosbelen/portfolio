@@ -137,6 +137,42 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  .process-glow {
+    animation: process-glow 6s ease-in-out infinite;
+  }
+
+  .process-node {
+    animation: process-node 2.4s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .timeline-pulse {
+    animation: timeline-pulse 2s ease-out infinite;
+  }
+}
+
+@keyframes process-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.14);
+  }
+}
+
+@keyframes process-node {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes phone-float {
@@ -146,5 +182,17 @@
   }
   50% {
     transform: translateY(-14px);
+  }
+}
+
+@keyframes timeline-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(199, 255, 74, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 11px rgba(199, 255, 74, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(199, 255, 74, 0);
   }
 }
