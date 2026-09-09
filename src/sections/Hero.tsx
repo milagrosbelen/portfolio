@@ -12,11 +12,11 @@ export function Hero() {
     <section
       id={SECTION_IDS.hero}
       data-nav-theme="dark"
-      className="relative z-10 isolate flex h-[100svh] max-h-[100svh] flex-col overflow-hidden bg-[#07060f] scroll-mt-0 pt-16"
+      className="relative z-10 isolate flex min-h-[100svh] flex-col overflow-x-hidden bg-[#07060f] scroll-mt-0 pt-16"
     >
       <SpaceBackdrop />
 
-      <div className="site-container relative flex flex-1 flex-col items-center justify-center">
+      <div className="site-container relative flex flex-1 flex-col items-center justify-center py-10">
         <div className="mx-auto w-full max-w-3xl text-center">
           <motion.p
             initial={{ y: 10 }}
@@ -28,7 +28,7 @@ export function Hero() {
           </motion.p>
 
           <motion.h1
-            initial={{ y: 16 }}
+            initial={{ y: 14 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5, delay: 0.04, ease }}
             className="font-display mt-5 text-[2.15rem] leading-[1.08] font-bold tracking-[-0.05em] text-white text-balance sm:mt-7 sm:text-[3.4rem] lg:text-[4rem]"

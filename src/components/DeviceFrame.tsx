@@ -37,8 +37,11 @@ export function PhoneMockup({
           <img
             src={src}
             alt={alt}
+            width={390}
+            height={844}
             className="absolute inset-0 h-full w-full object-cover object-top"
             loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
           />
         </div>
       </div>

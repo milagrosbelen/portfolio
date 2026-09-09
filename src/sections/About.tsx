@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { FadeIn } from '../components/AnimatedSection'
 import { aboutCopy, timeline } from '../data/about'
 import { SECTION_IDS } from '../lib/constants'
 import { cn } from '../lib/utils'
-import profileImage from '../assets/milagros.png'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -13,35 +13,28 @@ export function About() {
     <section id={SECTION_IDS.about} className="bg-mist section-space">
       <div className="site-container">
         <div className="mx-auto max-w-2xl text-center">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.55, ease }}
-            className="inline-flex items-center justify-center gap-3"
-          >
+          <FadeIn className="inline-flex items-center justify-center gap-3">
             <figure className="h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-black/10">
               <img
-                src={profileImage}
+                src="/milagros.webp"
                 alt="Milagros Pedrasa"
+                width={96}
+                height={96}
                 className="h-full w-full object-cover object-[50%_18%]"
                 loading="lazy"
+                decoding="async"
               />
             </figure>
             <h2 className="whitespace-nowrap text-[15px] font-semibold uppercase tracking-[0.16em] text-foreground">
               {aboutCopy.title}
             </h2>
-          </motion.div>
+          </FadeIn>
 
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, delay: 0.08, ease }}
-            className="mx-auto mt-8 max-w-xl text-justify text-[15px] leading-relaxed text-muted sm:text-base"
-          >
-            {aboutCopy.text}
-          </motion.p>
+          <FadeIn delay={0.08}>
+            <p className="mx-auto mt-8 max-w-xl text-justify text-[15px] leading-relaxed text-muted sm:text-base">
+              {aboutCopy.text}
+            </p>
+          </FadeIn>
         </div>
 
         <ol className="mx-auto mt-14 max-w-xl">
@@ -51,31 +44,23 @@ export function About() {
             return (
               <motion.li
                 key={item.year}
-                initial={reduce ? false : { opacity: 0, x: -18 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.55 }}
-                transition={{ duration: 0.55, ease, delay: reduce ? 0 : 0.04 }}
+                initial={reduce ? false : { opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, delay: index * 0.05, ease }}
                 className="relative grid grid-cols-[3.25rem_14px_minmax(0,1fr)] gap-x-3 pb-10 last:pb-0 sm:grid-cols-[4rem_14px_minmax(0,1fr)] sm:gap-x-5 sm:pb-12"
               >
-                <motion.p
-                  initial={reduce ? false : { opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.6 }}
-                  transition={{ duration: 0.45, delay: 0.08, ease }}
+                <p
                   className={cn(
                     'pt-px text-right font-display text-[15px] font-bold tracking-[-0.03em] sm:text-base',
                     item.current ? 'text-accent' : 'text-foreground',
                   )}
                 >
                   {item.year}
-                </motion.p>
+                </p>
 
                 <div className="relative flex flex-col items-center" aria-hidden="true">
-                  <motion.span
-                    initial={reduce ? false : { scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ type: 'spring', stiffness: 420, damping: 16, delay: 0.12 }}
+                  <span
                     className={cn(
                       'relative z-10 mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full',
                       item.current
@@ -84,23 +69,11 @@ export function About() {
                     )}
                   />
                   {!isLast ? (
-                    <motion.span
-                      initial={reduce ? false : { scaleY: 0 }}
-                      whileInView={{ scaleY: 1 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.7, delay: 0.22, ease }}
-                      className="mt-2 w-px flex-1 origin-top bg-gradient-to-b from-accent to-line"
-                    />
+                    <span className="mt-2 w-px flex-1 bg-gradient-to-b from-accent to-line" />
                   ) : null}
                 </div>
 
-                <motion.div
-                  initial={reduce ? false : { opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.5, delay: 0.16, ease }}
-                  className="min-w-0"
-                >
+                <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-[15px] font-semibold tracking-tight text-foreground sm:text-base">
                       {item.title}
@@ -114,7 +87,7 @@ export function About() {
                   <p className="mt-2 text-[14px] leading-relaxed text-muted sm:text-[15px]">
                     {item.description}
                   </p>
-                </motion.div>
+                </div>
               </motion.li>
             )
           })}

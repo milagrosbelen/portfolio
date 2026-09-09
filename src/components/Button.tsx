@@ -9,9 +9,9 @@ const variants: Record<ButtonVariant, string> = {
   secondary:
     'bg-transparent text-foreground border border-foreground/20 hover:border-foreground',
   ghost: 'bg-transparent text-muted hover:text-foreground',
-  inverse: 'bg-white text-foreground hover:bg-white/90',
+  inverse: 'bg-white text-foreground hover:bg-white/90 hover:shadow-[0_10px_28px_rgba(255,255,255,0.18)]',
   'inverse-secondary':
-    'bg-transparent text-white border border-white/25 hover:border-white',
+    'bg-transparent text-white border border-white/25 hover:border-white hover:bg-white/5',
 }
 
 type ButtonSize = 'sm' | 'md' | 'lg'
@@ -44,7 +44,7 @@ export function Button({
   onClick,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors duration-200',
+    'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-[color,background-color,border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0',
     variants[variant],
     sizes[size],
     className,

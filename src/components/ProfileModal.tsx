@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Mail, X } from 'lucide-react'
 import { useEffect } from 'react'
-import profileImage from '../assets/milagros.png'
 import { profile } from '../data/profile'
 import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
 
@@ -68,8 +67,10 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
 
             <div className="flex flex-col items-center px-5 pb-5 pt-6 text-center">
               <img
-                src={profileImage}
+                src="/milagros.webp"
                 alt={profile.name}
+                width={224}
+                height={224}
                 className="h-28 w-28 shrink-0 rounded-full object-cover object-[50%_18%] ring-1 ring-line"
               />
 

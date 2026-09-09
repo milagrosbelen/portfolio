@@ -16,7 +16,7 @@ export const projects: Project[] = [
       'Pensé el producto desde el problema real del taller: qué tenía que verse primero, cómo cargar un servicio y cómo entender el día de un vistazo. Diseñé la interfaz, desarrollé el frontend y el backend, y dejé el sistema funcionando para usar: ingresos del mes, servicios, presupuestos y el estado del taller, sin depender de papeles ni de la memoria.',
     demoUrl: 'https://taller-app-fawn.vercel.app/',
     accent: '#E11D2E',
-    previewImage: '/projects/drivox-dashboard.png',
+    previewImage: '/projects/drivox-dashboard.webp',
     heroImage: '/projects/hero-drivox.png',
   },
   {
@@ -34,7 +34,7 @@ export const projects: Project[] = [
       'Diseñé la interfaz: la home, las categorías, las ofertas, el catálogo y el flujo de compra. Me encargué de cómo se ve y cómo se usa el producto en el celular.',
     demoUrl: 'https://catalogo-curmy-store.vercel.app/',
     accent: '#22C55E',
-    previewImage: '/projects/curmy-store.png',
+    previewImage: '/projects/curmy-store.webp',
     heroImage: '/projects/hero-curmy.png',
   },
   {
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     work:
       'Definí el producto y lo construí de punta a punta: la vista de la semana, la sesión del día, las cards de cada ejercicio y el seguimiento del plan. Diseñé la interfaz y desarrollé la aplicación para que el entrenamiento se pueda usar de verdad, no quedar en una nota o en un Excel.',
     accent: '#FF5C00',
-    previewImage: '/projects/milogit-plan.png',
+    previewImage: '/projects/milogit-plan.webp',
     heroImage: '/projects/hero-milogit.png',
   },
 ]

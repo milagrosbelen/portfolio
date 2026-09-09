@@ -27,7 +27,7 @@ export function SocialLinks({ links, className, tone = 'default' }: SocialLinksP
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              'inline-flex items-center gap-2 text-sm transition-colors',
+              'inline-flex items-center gap-2 text-sm transition duration-200 hover:-translate-y-0.5',
               tone === 'light'
                 ? 'text-white/55 hover:text-white'
                 : 'text-muted hover:text-accent',

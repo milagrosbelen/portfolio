@@ -1,6 +1,5 @@
 import { Menu } from 'lucide-react'
 import { useState } from 'react'
-import profileImage from '../assets/milagros.png'
 import { Button } from '../components/Button'
 import { NavModal } from '../components/NavModal'
 import { ProfileModal } from '../components/ProfileModal'
@@ -41,8 +40,11 @@ export function Navbar() {
               className="flex items-center gap-2.5 rounded-full pr-1 focus-visible:outline-offset-4"
             >
               <img
-                src={profileImage}
+                src="/milagros.webp"
                 alt=""
+                width={72}
+                height={72}
+                decoding="async"
                 className={cn(
                   'h-9 w-9 rounded-full object-cover object-[50%_18%] ring-1',
                   onDark ? 'ring-white/20' : 'ring-line',
