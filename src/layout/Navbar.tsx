@@ -22,10 +22,10 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl backdrop-saturate-150 transition-[background-color,border-color,color] duration-300',
+          'fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,color,backdrop-filter] duration-300',
           onDark
-            ? 'border-white/10 bg-black/15 text-white'
-            : 'border-black/[0.05] bg-white/20 text-foreground',
+            ? 'border-transparent bg-transparent text-white'
+            : 'border-black/[0.05] bg-white/20 text-foreground backdrop-blur-xl backdrop-saturate-150',
         )}
       >
         <nav className="site-container grid h-16 grid-cols-[1fr_auto] items-center lg:grid-cols-[1fr_auto_1fr]">

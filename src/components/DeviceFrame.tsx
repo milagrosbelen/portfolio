@@ -28,7 +28,7 @@ export function PhoneMockup({
           float && (delay ? 'phone-float-delayed' : 'phone-float'),
           'rounded-[2rem] bg-black p-[7px] ring-1 ring-black/10',
           shadow === 'hero'
-            ? 'shadow-[0_12px_28px_rgba(0,0,0,0.18)]'
+            ? 'shadow-[0_18px_50px_rgba(99,91,255,0.28)] ring-white/15'
             : 'shadow-[0_24px_60px_rgba(0,0,0,0.45)] ring-white/12',
         )}
       >

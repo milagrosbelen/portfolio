@@ -28,6 +28,7 @@ export interface Project {
   demoUrl?: string
   accent: string
   previewImage: string
+  heroImage: string
 }
 
 export interface TimelineItem {

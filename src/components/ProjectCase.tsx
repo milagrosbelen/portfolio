@@ -42,26 +42,19 @@ function CaseStep({
 export function ProjectCase({ project, isLast = false }: ProjectCaseProps) {
   return (
     <article className="relative grid grid-cols-[18px_minmax(0,1fr)] gap-5 sm:grid-cols-[22px_minmax(0,1fr)] sm:gap-7">
-      <div className="relative flex h-full flex-col items-center pt-2" aria-hidden="true">
+      <div className="relative flex h-full min-h-full flex-col items-center pt-2" aria-hidden="true">
         <span
           className="relative z-10 h-3.5 w-3.5 shrink-0 rounded-full ring-4 ring-ink"
           style={{ background: project.accent, boxShadow: `0 0 14px ${project.accent}` }}
         />
-        {!isLast ? (
-          <span
-            className="mt-2 w-[2px] flex-1 rounded-full"
-            style={{
-              background: `linear-gradient(180deg, ${project.accent} 0%, ${project.accent}66 70%, transparent 100%)`,
-            }}
-          />
-        ) : (
-          <span
-            className="mt-2 h-16 w-[2px] rounded-full"
-            style={{
-              background: `linear-gradient(180deg, ${project.accent} 0%, transparent 100%)`,
-            }}
-          />
-        )}
+        <span
+          className="mt-2 w-[2.5px] min-h-[5rem] flex-1 rounded-full"
+          style={{
+            background: isLast
+              ? `linear-gradient(180deg, ${project.accent} 0%, ${project.accent} 78%, ${project.accent}aa 100%)`
+              : project.accent,
+          }}
+        />
       </div>
 
       <div className="relative min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 pb-10">

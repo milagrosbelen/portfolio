@@ -17,6 +17,7 @@ export const projects: Project[] = [
     demoUrl: 'https://taller-app-fawn.vercel.app/',
     accent: '#E11D2E',
     previewImage: '/projects/drivox-dashboard.png',
+    heroImage: '/projects/hero-drivox.png',
   },
   {
     id: 'curmy-store',
@@ -34,6 +35,7 @@ export const projects: Project[] = [
     demoUrl: 'https://catalogo-curmy-store.vercel.app/',
     accent: '#22C55E',
     previewImage: '/projects/curmy-store.png',
+    heroImage: '/projects/hero-curmy.png',
   },
   {
     id: 'milogit',
@@ -50,5 +52,6 @@ export const projects: Project[] = [
       'Definí el producto y lo construí de punta a punta: la vista de la semana, la sesión del día, las cards de cada ejercicio y el seguimiento del plan. Diseñé la interfaz y desarrollé la aplicación para que el entrenamiento se pueda usar de verdad, no quedar en una nota o en un Excel.',
     accent: '#FF5C00',
     previewImage: '/projects/milogit-plan.png',
+    heroImage: '/projects/hero-milogit.png',
   },
 ]

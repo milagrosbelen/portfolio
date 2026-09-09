@@ -151,6 +151,56 @@
   .timeline-pulse {
     animation: timeline-pulse 2s ease-out infinite;
   }
+
+  .hero-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    opacity: 0.22;
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+  }
+
+  .hero-orb {
+    animation: hero-orb 10s ease-in-out infinite;
+  }
+
+  .hero-orb-delayed {
+    animation: hero-orb 13s ease-in-out infinite 1.8s;
+  }
+
+  .hero-bokeh {
+    animation: hero-bokeh 7.5s ease-in-out infinite;
+  }
+
+  .hero-card-float {
+    animation: hero-card-float 6.4s ease-in-out infinite;
+  }
+
+  .hero-card-float-delayed {
+    animation: hero-card-float 7.2s ease-in-out infinite 0.9s;
+  }
+
+  .hero-photo-air {
+    -webkit-mask-image: radial-gradient(
+      ellipse 86% 78% at 50% 52%,
+      #000 20%,
+      rgba(0, 0, 0, 0.88) 46%,
+      rgba(0, 0, 0, 0.35) 66%,
+      transparent 80%
+    );
+    mask-image: radial-gradient(
+      ellipse 86% 78% at 50% 52%,
+      #000 20%,
+      rgba(0, 0, 0, 0.88) 46%,
+      rgba(0, 0, 0, 0.35) 66%,
+      transparent 80%
+    );
+  }
 }
 
 @keyframes process-glow {
@@ -194,5 +244,39 @@
   }
   100% {
     box-shadow: 0 0 0 0 rgba(199, 255, 74, 0);
+  }
+}
+
+@keyframes hero-orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(4%, -6%, 0) scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-bokeh {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.95;
+  }
+}
+
+@keyframes hero-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
