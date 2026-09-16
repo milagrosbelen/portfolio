@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { MapPin, Wifi } from 'lucide-react'
 import { Button } from '../components/Button'
+import { SectionGlow } from '../components/SectionGlow'
 import { profile } from '../data/profile'
 import { SECTION_IDS } from '../lib/constants'
 
@@ -11,9 +12,10 @@ export function Hero() {
     <section
       id={SECTION_IDS.hero}
       data-nav-theme="dark"
-      className="relative flex min-h-[100svh] flex-col overflow-x-hidden scroll-mt-0 pt-16"
+      className="relative flex min-h-dvh flex-col scroll-mt-0 pt-16"
     >
-      <div className="site-container relative flex flex-1 flex-col items-center justify-center py-10">
+      <SectionGlow variant="hero" />
+      <div className="site-container relative z-10 flex flex-1 flex-col items-center justify-center py-10">
         <div className="mx-auto w-full max-w-3xl text-center">
           <motion.p
             initial={{ y: 10 }}

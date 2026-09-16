@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { FadeIn } from '../components/AnimatedSection'
+import { SectionGlow } from '../components/SectionGlow'
 import { useReducedMotion } from 'framer-motion'
 import { BookOpen, CodeXml, LayoutGrid, TrendingUp } from 'lucide-react'
 import type { ComponentType } from 'react'
@@ -95,18 +96,11 @@ export function Process() {
     <section
       id={SECTION_IDS.process}
       data-nav-theme="dark"
-      className="relative overflow-hidden section-space lg:py-32"
+      className="relative section-space lg:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="process-glow pointer-events-none absolute top-0 left-1/2 h-[22rem] w-[34rem] -translate-x-1/2 rounded-full bg-accent/30 blur-[80px] sm:blur-[140px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-6rem] left-1/2 hidden h-64 w-[28rem] -translate-x-1/2 rounded-full bg-accent/15 blur-[120px] sm:block"
-      />
+      <SectionGlow variant="black" />
 
-      <div className="site-container relative">
+      <div className="site-container relative z-10">
         <FadeIn>
           <div className="mx-auto max-w-xl text-center lg:max-w-2xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime sm:text-xs">
@@ -146,7 +140,7 @@ export function Process() {
                 <li key={step.number} className="process-step">
                   <StepCard
                     step={step}
-                    className="flex h-full flex-col items-center rounded-[1.35rem] border border-accent/45 bg-[#141414] px-3 py-5 text-center shadow-[0_0_24px_rgba(99,91,255,0.16)] transition duration-300 hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_12px_40px_rgba(99,91,255,0.28)] sm:px-4 sm:py-6"
+                    className="flex h-full flex-col items-center rounded-[1.35rem] border border-accent/45 bg-white/[0.04] px-3 py-5 text-center shadow-[0_0_24px_rgba(99,91,255,0.16)] backdrop-blur-[8px] transition duration-300 hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_12px_40px_rgba(99,91,255,0.28)] sm:px-4 sm:py-6"
                   />
                 </li>
               ))}

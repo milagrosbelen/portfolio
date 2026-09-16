@@ -14,7 +14,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   }, [])
 
   return (
-    <div className="relative isolate min-h-screen bg-[#03040a]">
+    <div className="relative min-h-dvh bg-[#03040a]">
       <SpaceBackdrop />
       <a
         href="#contenido"
@@ -22,11 +22,11 @@ export function MainLayout({ children }: MainLayoutProps) {
       >
         Saltar al contenido
       </a>
-      <div className="relative z-[2]">
-        <Navbar />
-        <main id="contenido">{children}</main>
-        <Footer />
-      </div>
+      <Navbar />
+      <main id="contenido">
+        {children}
+      </main>
+      <Footer />
       <WhatsAppFloat />
     </div>
   )

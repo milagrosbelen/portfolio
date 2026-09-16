@@ -1,5 +1,6 @@
 import { FadeIn } from '../components/AnimatedSection'
 import { ProjectCase } from '../components/ProjectCase'
+import { SectionGlow } from '../components/SectionGlow'
 import { projects } from '../data/projects'
 import { SECTION_IDS } from '../lib/constants'
 
@@ -10,7 +11,8 @@ export function Projects() {
       data-nav-theme="dark"
       className="relative section-space"
     >
-      <div className="site-container">
+      <SectionGlow variant="black" />
+      <div className="site-container relative z-10">
         <FadeIn>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40 sm:text-xs">
             Trabajo seleccionado

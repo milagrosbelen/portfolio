@@ -57,7 +57,7 @@ export function ProjectCase({ project, isLast = false }: ProjectCaseProps) {
         />
       </div>
 
-      <div className="relative min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(8,7,18,0.72)] pb-10 backdrop-blur-[10px] transition duration-300 hover:border-white/20 hover:shadow-[0_18px_50px_rgba(0,0,0,0.35)]">
+      <div className="relative min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] pb-10 backdrop-blur-[10px] transition duration-300 hover:border-white/20 hover:shadow-[0_18px_50px_rgba(0,0,0,0.35)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"

@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { FadeIn } from '../components/AnimatedSection'
 import { Button } from '../components/Button'
+import { SectionGlow } from '../components/SectionGlow'
 import { SocialLinks } from '../components/SocialLinks'
 import { profile } from '../data/profile'
 import { SECTION_IDS } from '../lib/constants'
@@ -10,9 +11,10 @@ export function Contact() {
     <section
       id={SECTION_IDS.contact}
       data-nav-theme="dark"
-      className="relative flex min-h-[100svh] flex-col overflow-hidden scroll-mt-0"
+      className="relative scroll-mt-0 section-space"
     >
-      <div className="site-container relative flex flex-1 flex-col items-center justify-center py-24 sm:py-28">
+      <SectionGlow variant="contact" />
+      <div className="site-container relative z-10 flex flex-col items-center justify-center py-10 sm:py-16">
         <FadeIn className="mx-auto w-full max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50 sm:text-xs">
             Contacto

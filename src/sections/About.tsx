@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { FadeIn } from '../components/AnimatedSection'
 import { aboutCopy, timeline } from '../data/about'
 import { SECTION_IDS } from '../lib/constants'
+import { SectionGlow } from '../components/SectionGlow'
 import { cn } from '../lib/utils'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -15,7 +16,8 @@ export function About() {
       data-nav-theme="dark"
       className="relative section-space"
     >
-      <div className="site-container">
+      <SectionGlow variant="black" />
+      <div className="site-container relative z-10">
         <div className="mx-auto max-w-2xl text-center">
           <FadeIn className="inline-flex items-center justify-center gap-3">
             <figure className="h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-white/20">
