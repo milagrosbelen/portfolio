@@ -8,7 +8,7 @@ export function Projects() {
     <section
       id={SECTION_IDS.projects}
       data-nav-theme="dark"
-      className="bg-ink section-space"
+      className="relative section-space"
     >
       <div className="site-container">
         <FadeIn>

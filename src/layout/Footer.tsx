@@ -12,7 +12,7 @@ const stack = techGroups.flatMap((group) => group.items)
 
 export function Footer() {
   return (
-    <footer data-nav-theme="dark" className="border-t border-white/10 bg-ink">
+    <footer data-nav-theme="dark" className="border-t border-white/10">
       <div className="site-container flex flex-col items-center py-12 text-center">
         <p className="text-[13px] font-semibold tracking-[0.04em] text-white">
           {profile.firstName}

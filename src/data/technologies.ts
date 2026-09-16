@@ -15,6 +15,6 @@ export const techGroups: TechGroup[] = [
   },
   {
     category: 'Tools',
-    items: ['Git', 'GitHub', 'Vite'],
+    items: ['Git', 'Vite'],
   },
 ]

@@ -2,10 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Mail, X } from 'lucide-react'
 import { useEffect } from 'react'
 import { profile } from '../data/profile'
-import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
+import { LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
 
 const linkIcons = {
-  github: GitHubIcon,
   linkedin: LinkedInIcon,
   whatsapp: WhatsAppIcon,
 } as const

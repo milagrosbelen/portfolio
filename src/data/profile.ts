@@ -22,10 +22,5 @@ export const profile: Profile = {
       href: 'https://www.linkedin.com/in/milagros-pedrasa-56801537a/',
       icon: 'linkedin',
     },
-    {
-      label: 'GitHub',
-      href: 'https://github.com/milagrosbelen',
-      icon: 'github',
-    },
   ],
 }

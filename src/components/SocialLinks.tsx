@@ -1,9 +1,8 @@
 import type { SocialLink } from '../types'
-import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
+import { LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
 import { cn } from '../lib/utils'
 
 const iconMap = {
-  github: GitHubIcon,
   linkedin: LinkedInIcon,
   whatsapp: WhatsAppIcon,
 } as const

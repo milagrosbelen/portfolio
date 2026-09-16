@@ -3,7 +3,7 @@ export interface NavLink {
   href: string
 }
 
-export type SocialIcon = 'github' | 'linkedin' | 'whatsapp'
+export type SocialIcon = 'linkedin' | 'whatsapp'
 
 export interface SocialLink {
   label: string

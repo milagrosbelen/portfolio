@@ -2,7 +2,6 @@ import { ArrowUpRight } from 'lucide-react'
 import { FadeIn } from '../components/AnimatedSection'
 import { Button } from '../components/Button'
 import { SocialLinks } from '../components/SocialLinks'
-import { SpaceBackdrop } from '../components/SpaceBackdrop'
 import { profile } from '../data/profile'
 import { SECTION_IDS } from '../lib/constants'
 
@@ -11,9 +10,8 @@ export function Contact() {
     <section
       id={SECTION_IDS.contact}
       data-nav-theme="dark"
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#07060f] scroll-mt-0"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden scroll-mt-0"
     >
-      <SpaceBackdrop />
       <div className="site-container relative flex flex-1 flex-col items-center justify-center py-24 sm:py-28">
         <FadeIn className="mx-auto w-full max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50 sm:text-xs">

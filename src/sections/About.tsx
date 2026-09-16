@@ -10,11 +10,15 @@ export function About() {
   const reduce = useReducedMotion()
 
   return (
-    <section id={SECTION_IDS.about} className="bg-mist section-space">
+    <section
+      id={SECTION_IDS.about}
+      data-nav-theme="dark"
+      className="relative section-space"
+    >
       <div className="site-container">
         <div className="mx-auto max-w-2xl text-center">
           <FadeIn className="inline-flex items-center justify-center gap-3">
-            <figure className="h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-black/10">
+            <figure className="h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-white/20">
               <img
                 src="/milagros.webp"
                 alt="Milagros Pedrasa"
@@ -25,13 +29,13 @@ export function About() {
                 decoding="async"
               />
             </figure>
-            <h2 className="whitespace-nowrap text-[15px] font-semibold uppercase tracking-[0.16em] text-foreground">
+            <h2 className="whitespace-nowrap text-[15px] font-semibold uppercase tracking-[0.16em] text-white">
               {aboutCopy.title}
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <p className="mx-auto mt-8 max-w-xl text-justify text-[15px] leading-relaxed text-muted sm:text-base">
+            <p className="mx-auto mt-8 max-w-xl text-justify text-[15px] leading-relaxed text-white/60 sm:text-base">
               {aboutCopy.text}
             </p>
           </FadeIn>
@@ -53,7 +57,7 @@ export function About() {
                 <p
                   className={cn(
                     'pt-px text-right font-display text-[15px] font-bold tracking-[-0.03em] sm:text-base',
-                    item.current ? 'text-accent' : 'text-foreground',
+                    item.current ? 'text-accent' : 'text-white',
                   )}
                 >
                   {item.year}
@@ -69,13 +73,13 @@ export function About() {
                     )}
                   />
                   {!isLast ? (
-                    <span className="mt-2 w-px flex-1 bg-gradient-to-b from-accent to-line" />
+                    <span className="mt-2 w-px flex-1 bg-gradient-to-b from-accent to-white/10" />
                   ) : null}
                 </div>
 
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-[15px] font-semibold tracking-tight text-foreground sm:text-base">
+                    <h3 className="text-[15px] font-semibold tracking-tight text-white sm:text-base">
                       {item.title}
                     </h3>
                     {item.current ? (
@@ -84,7 +88,7 @@ export function About() {
                       </span>
                     ) : null}
                   </div>
-                  <p className="mt-2 text-[14px] leading-relaxed text-muted sm:text-[15px]">
+                  <p className="mt-2 text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
                     {item.description}
                   </p>
                 </div>

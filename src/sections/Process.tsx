@@ -95,7 +95,7 @@ export function Process() {
     <section
       id={SECTION_IDS.process}
       data-nav-theme="dark"
-      className="relative overflow-hidden bg-ink section-space lg:py-32"
+      className="relative overflow-hidden section-space lg:py-32"
     >
       <div
         aria-hidden="true"
