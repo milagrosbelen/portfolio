@@ -1,64 +1,61 @@
 import { Menu } from 'lucide-react'
 import { useState } from 'react'
-import { Button } from '../components/Button'
+import { LogoMark } from '../components/LogoMark'
 import { NavModal } from '../components/NavModal'
 import { ProfileModal } from '../components/ProfileModal'
 import { navigation } from '../data/navigation'
 import { profile } from '../data/profile'
 import { useActiveSection } from '../hooks/useActiveSection'
-import { useNavOnDark } from '../hooks/useNavOnDark'
+import { SECTION_IDS } from '../lib/constants'
 import { cn } from '../lib/utils'
 
-const sectionIds = navigation.map((item) => item.href.replace('#', ''))
+const desktopNavigation = [
+  { label: 'Inicio', href: `#${SECTION_IDS.hero}` },
+  { label: 'Proyectos', href: `#${SECTION_IDS.projects}` },
+  { label: 'Sobre mí', href: `#${SECTION_IDS.about}` },
+  { label: 'Cómo ayudo', href: '#como-puedo-ayudarte' },
+  { label: 'Contacto', href: `#${SECTION_IDS.contact}` },
+]
+
+const sectionIds = [...new Set([...navigation, ...desktopNavigation].map((item) => item.href.replace('#', '')))]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
   const activeSection = useActiveSection(sectionIds)
-  const onDark = useNavOnDark()
 
   return (
     <>
-      <header
-        className={cn(
-          'fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,color,backdrop-filter] duration-300',
-          onDark
-            ? 'border-transparent bg-transparent text-white'
-            : 'border-black/[0.05] bg-white/20 text-foreground backdrop-blur-xl backdrop-saturate-150',
-        )}
-      >
-        <nav className="site-container grid h-16 grid-cols-[1fr_auto] items-center lg:grid-cols-[1fr_auto_1fr]">
-          <div className="relative justify-self-start">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050510]/75 text-foreground backdrop-blur-xl">
+        <nav
+          aria-label="Principal"
+          className="mx-auto flex h-[4.25rem] max-w-[1320px] items-center justify-between gap-4 px-5 sm:h-[4.5rem] sm:px-8"
+        >
+          <div className="relative flex min-w-0 items-center gap-2.5 sm:gap-3">
             <button
               type="button"
-              aria-label="Ver perfil de Milagros Pedrasa"
+              aria-label="Abrir perfil de Milagros Pedrasa"
               aria-expanded={profileOpen}
+              aria-haspopup="dialog"
               onClick={() => {
                 setIsOpen(false)
                 setProfileOpen((open) => !open)
               }}
-              className="flex items-center gap-2.5 rounded-full pr-1 focus-visible:outline-offset-4"
+              className="grid h-11 w-11 shrink-0 place-items-center text-foreground transition-colors hover:text-[#c4b5fd]"
             >
-              <img
-                src="/milagros.webp"
-                alt=""
-                width={72}
-                height={72}
-                decoding="async"
-                className={cn(
-                  'h-9 w-9 rounded-full object-cover object-[50%_18%] ring-1',
-                  onDark ? 'ring-white/20' : 'ring-line',
-                )}
-              />
-              <span className="text-[13px] font-semibold tracking-[0.04em]">
-                {profile.firstName}
-              </span>
+              <LogoMark className="h-7" />
             </button>
+            <a href={`#${SECTION_IDS.hero}`} className="min-w-0 leading-tight">
+              <span className="block truncate font-display text-[15px] font-semibold tracking-[-0.03em] sm:text-base">
+                {profile.name}
+              </span>
+              <span className="hidden text-[11px] text-muted sm:block">{profile.headlineRole}</span>
+            </a>
             <ProfileModal isOpen={profileOpen} onClose={() => setProfileOpen(false)} />
           </div>
 
-          <div className="hidden items-center gap-8 lg:flex">
-            {navigation.map((item) => {
+          <div className="hidden items-center gap-x-7 min-[1180px]:flex">
+            {desktopNavigation.map((item) => {
               const sectionId = item.href.replace('#', '')
               const isActive = activeSection === sectionId
 
@@ -66,47 +63,39 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  aria-current={isActive ? 'page' : undefined}
+                  aria-current={isActive ? 'true' : undefined}
                   className={cn(
-                    'text-[12px] font-medium uppercase tracking-[0.16em] transition-colors',
-                    isActive
-                      ? onDark
-                        ? 'text-white'
-                        : 'text-accent'
-                      : onDark
-                        ? 'text-white/55 hover:text-white'
-                        : 'text-muted hover:text-foreground',
+                    'relative py-2 text-[13px] font-medium tracking-[-0.01em] whitespace-nowrap transition-colors',
+                    isActive ? 'text-foreground' : 'text-muted hover:text-foreground',
                   )}
                 >
                   {item.label}
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      'absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-[#793BFF] transition-opacity',
+                      isActive ? 'opacity-100' : 'opacity-0',
+                    )}
+                  />
                 </a>
               )
             })}
           </div>
 
-          <div className="hidden justify-end lg:flex">
-            <Button
-              href={profile.whatsappUrl}
-              external
-              size="sm"
-              variant={onDark ? 'inverse' : 'primary'}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Abrir menú"
+              aria-expanded={isOpen}
+              onClick={() => {
+                setProfileOpen(false)
+                setIsOpen(true)
+              }}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 min-[1180px]:hidden"
             >
-              Hablemos
-            </Button>
+              <Menu className="h-5 w-5" />
+            </button>
           </div>
-
-          <button
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded={isOpen}
-            onClick={() => {
-              setProfileOpen(false)
-              setIsOpen(true)
-            }}
-            className="inline-flex h-10 w-10 items-center justify-center justify-self-end transition-transform duration-200 active:scale-90 lg:hidden"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
         </nav>
       </header>
 

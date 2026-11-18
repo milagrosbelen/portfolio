@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 
 export function useActiveSection(sectionIds: string[]) {
-  const [activeSection, setActiveSection] = useState(sectionIds[0])
+  const key = sectionIds.join('|')
+  const [activeSection, setActiveSection] = useState(sectionIds[0] ?? '')
 
   useEffect(() => {
+    const ids = key.split('|').filter(Boolean)
     const observers: IntersectionObserver[] = []
 
-    sectionIds.forEach((id) => {
+    ids.forEach((id) => {
       const element = document.getElementById(id)
       if (!element) return
 
@@ -16,7 +18,7 @@ export function useActiveSection(sectionIds: string[]) {
             setActiveSection(id)
           }
         },
-        { rootMargin: '-40% 0px -50% 0px', threshold: 0 },
+        { rootMargin: '-35% 0px -50% 0px', threshold: 0 },
       )
 
       observer.observe(element)
@@ -24,7 +26,7 @@ export function useActiveSection(sectionIds: string[]) {
     })
 
     return () => observers.forEach((observer) => observer.disconnect())
-  }, [sectionIds])
+  }, [key])
 
   return activeSection
 }

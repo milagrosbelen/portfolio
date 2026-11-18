@@ -1,17 +1,25 @@
 import type { ReactNode } from 'react'
 import { cn } from '../lib/utils'
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'inverse' | 'inverse-secondary'
+type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'ghost'
+  | 'accent'
+  | 'inverse'
+  | 'inverse-secondary'
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    'bg-foreground text-white hover:bg-accent',
+    'bg-[#793BFF] text-white shadow-[0_10px_30px_rgba(121,59,255,0.38)] hover:bg-[#6a2cf0]',
   secondary:
-    'bg-transparent text-foreground border border-foreground/20 hover:border-foreground',
+    'border border-white/15 bg-white/[0.04] text-foreground backdrop-blur-md hover:border-[#793BFF]/70 hover:bg-white/[0.07]',
   ghost: 'bg-transparent text-muted hover:text-foreground',
-  inverse: 'bg-white text-foreground hover:bg-white/90 hover:shadow-[0_10px_28px_rgba(255,255,255,0.18)]',
+  accent:
+    'bg-[#793BFF] text-white shadow-[0_10px_30px_rgba(121,59,255,0.38)] hover:bg-[#6a2cf0]',
+  inverse: 'bg-foreground text-background hover:bg-white',
   'inverse-secondary':
-    'bg-transparent text-white border border-white/25 hover:border-white hover:bg-white/5',
+    'bg-transparent text-foreground border border-white/20 hover:border-[#c4b5fd] hover:bg-white/5',
 }
 
 type ButtonSize = 'sm' | 'md' | 'lg'
@@ -24,13 +32,14 @@ interface ButtonProps {
   external?: boolean
   className?: string
   type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
   onClick?: () => void
 }
 
 const sizes: Record<ButtonSize, string> = {
-  sm: 'h-9 px-3.5 text-[12px] tracking-[0.14em] uppercase',
-  md: 'h-11 px-5 text-[13px] tracking-[0.12em] uppercase',
-  lg: 'h-12 px-6 text-[13px] tracking-[0.12em] uppercase',
+  sm: 'h-11 px-4 text-sm',
+  md: 'h-12 px-5 text-[15px]',
+  lg: 'h-14 px-6 text-base',
 }
 
 export function Button({
@@ -41,10 +50,11 @@ export function Button({
   external,
   className,
   type = 'button',
+  disabled,
   onClick,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-[color,background-color,border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0',
+    'inline-flex items-center justify-center gap-2.5 rounded-full font-semibold tracking-[-0.01em] transition-[color,background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-px disabled:pointer-events-none disabled:opacity-60',
     variants[variant],
     sizes[size],
     className,
@@ -65,7 +75,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   )

@@ -115,7 +115,7 @@ export function PhoneCarousel({ phones }: PhoneCarouselProps) {
             className="w-[168px] shrink-0 sm:w-[196px] lg:w-[188px] xl:w-[210px]"
           >
             <PhoneMockup
-              src={project.heroImage}
+              src={project.video.poster ?? project.images[0]?.src ?? ''}
               alt={index < phones.length ? `${project.name} — aplicación` : ''}
               eager={index < phones.length}
               float={false}

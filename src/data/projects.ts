@@ -1,57 +1,115 @@
 import type { Project } from '../types'
 
+export const projectsIntro = {
+  eyebrow: 'Proyectos seleccionados',
+  title: 'Problemas concretos, convertidos en productos.',
+  text: 'Cada caso cuenta qué pasaba, qué construí y cuál fue mi participación. El video de cada proyecto se publica en el espacio reservado.',
+}
+
+/**
+ * Videos de demostración.
+ * Cuando el archivo esté listo, completalo en `video.src` de cada proyecto.
+ * Puede ser una ruta de `public/` o una URL directa.
+ *
+ * Ejemplo:
+ * video: {
+ *   src: '/projects/drivox.mp4',
+ *   poster: '/projects/hero-drivox.webp',
+ * }
+ *
+ * Con `src` vacío se muestra el placeholder. No uses videos de stock.
+ */
 export const projects: Project[] = [
   {
     id: 'drivox',
     number: '01',
     name: 'DRIVOX',
-    tagline:
-      'Sistema de gestión para talleres de motos: servicios, clientes, presupuestos e ingresos en un solo lugar.',
+    productType: 'Sistema de gestión para talleres de motos',
     origin: 'Para un negocio',
     problem:
-      'Un taller de motos con todo en la cabeza: servicios, clientes y números sueltos, sin una herramienta para ordenar el día a día.',
+      'La gestión del taller dependía de información dispersa, registros manuales y tareas que necesitaban más organización.',
     solution:
-      'Un sistema para cargar servicios, ver ingresos, armar presupuestos y tener el taller bajo control desde el celular.',
-    work:
-      'Pensé el producto desde el problema real del taller: qué tenía que verse primero, cómo cargar un servicio y cómo entender el día de un vistazo. Diseñé la interfaz, desarrollé el frontend y el backend, y dejé el sistema funcionando para usar: ingresos del mes, servicios, presupuestos y el estado del taller, sin depender de papeles ni de la memoria.',
+      'Una aplicación que centraliza los servicios, permite consultar ingresos, administrar presupuestos y seguir el estado del taller.',
+    work: 'Me encargué de pensar el producto desde las necesidades del taller, diseñar las interfaces y desarrollar el frontend y backend. Trabajé en la organización de la información, los flujos de trabajo y las funcionalidades necesarias para el uso cotidiano.',
+    areas: ['Gestión', 'Servicios', 'Clientes', 'Presupuestos', 'Ingresos'],
     demoUrl: 'https://taller-app-fawn.vercel.app/',
     accent: '#E11D2E',
-    previewImage: '/projects/drivox-dashboard.webp',
-    heroImage: '/projects/hero-drivox.png',
+    video: {
+      src: '',
+      poster: '/projects/hero-drivox.webp',
+    },
+    images: [
+      {
+        src: '/projects/drivox-landing.webp',
+        alt: 'Página de DRIVOX para talleres de motos, con acceso al panel del sistema.',
+        caption: 'Presentación del producto',
+        kind: 'wide',
+      },
+      {
+        src: '/projects/hero-drivox.webp',
+        alt: 'Panel de DRIVOX con ingresos del mes, servicios, clientes y presupuesto rápido.',
+        caption: 'Panel del taller',
+        kind: 'phone',
+      },
+    ],
   },
   {
     id: 'curmy-store',
     number: '02',
     name: 'CURMY STORE',
-    tagline:
-      'Tienda digital de fútbol y urbano: catálogo, categorías, ofertas y compra desde el celular.',
+    productType: 'Experiencia de tienda digital para una marca de indumentaria',
     origin: 'Colaboración',
     problem:
-      'Una marca con showroom físico, pero sin una tienda digital clara para mostrar el catálogo y vender.',
+      'El negocio contaba con un showroom físico, pero necesitaba una experiencia digital clara para mostrar sus productos y llegar a más compradores.',
     solution:
-      'Una experiencia e-commerce para explorar categorías, ver ofertas y comprar desde el celular.',
-    work:
-      'Diseñé la interfaz: la home, las categorías, las ofertas, el catálogo y el flujo de compra. Me encargué de cómo se ve y cómo se usa el producto en el celular.',
+      'Una tienda digital con catálogo, categorías, ofertas y navegación adaptada a dispositivos móviles.',
+    work: 'Me encargué del diseño de la experiencia de usuario y de la interfaz: página principal, categorías, catálogo, ofertas y recorrido de compra. Trabajé para que la experiencia fuera visualmente clara y sencilla de utilizar.',
+    areas: ['Diseño UI', 'UX', 'Catálogo', 'E-commerce', 'Experiencia móvil'],
     demoUrl: 'https://catalogo-curmy-store.vercel.app/',
     accent: '#22C55E',
-    previewImage: '/projects/curmy-store.webp',
-    heroImage: '/projects/hero-curmy.png',
+    video: {
+      src: '',
+      poster: '/projects/hero-curmy.webp',
+    },
+    images: [
+      {
+        src: '/projects/hero-curmy.webp',
+        alt: 'Inicio de Curmy Store con categorías, ofertas y acceso al carrito.',
+        caption: 'Inicio',
+        kind: 'phone',
+      },
+      {
+        src: '/projects/curmy-store-catalog.webp',
+        alt: 'Catálogo de indumentaria de Curmy Store con precios y navegación inferior.',
+        caption: 'Catálogo',
+        kind: 'phone',
+      },
+    ],
   },
   {
     id: 'milogit',
     number: '03',
     name: 'MILOGIT',
-    tagline:
-      'App para organizar el entrenamiento: plan semanal, sesión del día y seguimiento de ejercicios.',
+    productType: 'Aplicación propia para organizar y seguir entrenamientos',
     origin: 'Propio',
     problem:
-      'El entrenamiento se seguía de forma suelta: sin un plan claro ni registro de cada sesión.',
+      'El entrenamiento se organizaba de manera dispersa, sin una estructura clara para consultar el plan y seguir cada sesión.',
     solution:
-      'Una app para ver la semana, entrar a la sesión del día y seguir los ejercicios paso a paso.',
-    work:
-      'Definí el producto y lo construí de punta a punta: la vista de la semana, la sesión del día, las cards de cada ejercicio y el seguimiento del plan. Diseñé la interfaz y desarrollé la aplicación para que el entrenamiento se pueda usar de verdad, no quedar en una nota o en un Excel.',
+      'Una aplicación que reúne el calendario semanal, la sesión del día y el seguimiento de los ejercicios.',
+    work: 'Definí el producto y desarrollé la aplicación de punta a punta. Diseñé la estructura de navegación, las vistas semanales, las sesiones y los componentes para acompañar el entrenamiento.',
+    areas: ['Producto', 'Diseño UI', 'Frontend', 'Organización de información'],
     accent: '#FF5C00',
-    previewImage: '/projects/milogit-plan.webp',
-    heroImage: '/projects/hero-milogit.png',
+    video: {
+      src: '',
+      poster: '/projects/hero-milogit.webp',
+    },
+    images: [
+      {
+        src: '/projects/hero-milogit.webp',
+        alt: 'Plan semanal de MILOGIT con la sesión del día y los ejercicios.',
+        caption: 'Plan de la semana',
+        kind: 'phone',
+      },
+    ],
   },
 ]

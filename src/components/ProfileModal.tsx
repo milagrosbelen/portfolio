@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Mail, X } from 'lucide-react'
+import { FileText, Mail, X } from 'lucide-react'
 import { useEffect } from 'react'
 import { profile } from '../data/profile'
 import { LinkedInIcon, WhatsAppIcon } from './icons/BrandIcons'
@@ -42,7 +42,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[110] bg-foreground/20"
+            className="fixed inset-0 z-[110] bg-black/60"
           />
 
           <motion.div
@@ -53,7 +53,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ type: 'spring', damping: 28, stiffness: 360 }}
-            className="absolute left-0 top-[calc(100%+10px)] z-[120] w-[min(92vw,320px)] overflow-hidden rounded-xl border border-line bg-surface shadow-[0_16px_40px_rgba(26,25,23,0.12)]"
+            className="glass-card absolute top-[calc(100%+10px)] left-0 z-[120] w-[min(92vw,320px)] overflow-hidden rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.45)]"
           >
             <button
               type="button"
@@ -108,6 +108,16 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                 >
                   <Mail className="h-4 w-4 shrink-0" />
                   Email
+                </a>
+                <a
+                  href={profile.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center gap-2.5 rounded-md border border-line bg-background px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30"
+                >
+                  <FileText className="h-4 w-4 shrink-0" />
+                  Currículum
                 </a>
               </div>
             </div>

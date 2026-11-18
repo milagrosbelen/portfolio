@@ -1,15 +1,10 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useEffect } from 'react'
 import { navigation } from '../data/navigation'
 import { profile } from '../data/profile'
-import { SECTION_IDS } from '../lib/constants'
+import { WHATSAPP_PROJECT_URL, SECTION_IDS } from '../lib/constants'
 import { Button } from './Button'
-
-const menuLinks = [
-  ...navigation,
-  { label: 'Contacto', href: `#${SECTION_IDS.contact}` },
-]
 
 interface NavModalProps {
   isOpen: boolean
@@ -17,6 +12,8 @@ interface NavModalProps {
 }
 
 export function NavModal({ isOpen, onClose }: NavModalProps) {
+  const reduce = useReducedMotion()
+
   useEffect(() => {
     if (!isOpen) return
 
@@ -36,75 +33,79 @@ export function NavModal({ isOpen, onClose }: NavModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-5 lg:hidden">
+        <div className="fixed inset-0 z-[100] min-[1180px]:hidden">
           <motion.button
             type="button"
             aria-label="Cerrar menú"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: reduce ? 0 : 0.2 }}
             onClick={onClose}
-            className="absolute inset-0 bg-foreground/35 backdrop-blur-[6px]"
+            className="absolute inset-0 bg-black/70"
           />
 
           <motion.div
             role="dialog"
             aria-modal="true"
             aria-labelledby="nav-modal-title"
-            initial={{ opacity: 0, scale: 0.88, y: 28 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.94, y: 12 }}
-            transition={{ type: 'spring', damping: 22, stiffness: 320 }}
-            className="relative z-10 w-full max-w-[340px] overflow-hidden rounded-2xl border border-line bg-surface px-6 py-7 text-center shadow-[0_24px_60px_rgba(26,25,23,0.18)]"
+            initial={reduce ? false : { opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, x: 24 }}
+            transition={{ duration: reduce ? 0 : 0.25 }}
+            className="absolute top-0 right-0 flex h-full w-[min(100%,22rem)] flex-col border-l border-white/10 bg-[#07060f]/95 px-6 py-6 shadow-[-24px_0_60px_rgba(0,0,0,0.45)] backdrop-blur-xl"
           >
-            <button
-              type="button"
-              aria-label="Cerrar"
-              onClick={onClose}
-              className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-line text-muted transition-colors hover:text-foreground"
-            >
-              <X className="h-4 w-4" />
-            </button>
+            <div className="flex items-center justify-between">
+              <p id="nav-modal-title" className="eyebrow">
+                Menú
+              </p>
+              <button
+                type="button"
+                aria-label="Cerrar"
+                onClick={onClose}
+                autoFocus
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
 
-            <p
-              id="nav-modal-title"
-              className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted"
-            >
-              Menú
-            </p>
-
-            <nav className="mt-6 flex flex-col gap-1">
-              {menuLinks.map((item, index) => (
-                <motion.a
+            <nav className="mt-8 flex flex-col">
+              {navigation.map((item) => (
+                <a
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 + index * 0.05, duration: 0.35 }}
-                  className="rounded-lg py-2.5 text-[17px] font-semibold tracking-tight text-foreground transition-colors hover:bg-background"
+                  className="border-b border-white/10 py-4 font-display text-2xl font-semibold tracking-[-0.03em] text-foreground transition-colors hover:text-[#c4b5fd]"
                 >
                   {item.label}
-                </motion.a>
+                </a>
               ))}
             </nav>
 
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.32, duration: 0.35 }}
-            >
-              <Button
-                href={profile.whatsappUrl}
-                external
-                size="md"
-                className="mt-6 w-full"
-                onClick={onClose}
-              >
-                Hablemos
+            <div className="mt-auto flex flex-col gap-3 pt-8">
+              <Button href={`#${SECTION_IDS.contact}`} className="w-full" onClick={onClose}>
+                Trabajemos juntos
               </Button>
-            </motion.div>
+              <a
+                href={WHATSAPP_PROJECT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="inline-flex min-h-11 items-center justify-center text-sm font-semibold text-muted"
+              >
+                Escribir por WhatsApp
+              </a>
+              <a
+                href={profile.cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="inline-flex min-h-11 items-center justify-center text-sm text-muted"
+              >
+                Ver currículum
+              </a>
+            </div>
           </motion.div>
         </div>
       )}

@@ -13,7 +13,7 @@ function isDarkUnderNav() {
 }
 
 export function useNavOnDark() {
-  const [onDark, setOnDark] = useState(true)
+  const [onDark, setOnDark] = useState(false)
 
   useEffect(() => {
     let ticking = false

@@ -1,28 +1,34 @@
 import type { ProcessStep } from '../types'
 
+export const processIntro = {
+  eyebrow: 'Cómo trabajo',
+  title: 'Cada proyecto comienza escuchando.',
+  text: 'Me interesa entender lo que necesitás antes de pensar cómo desarrollarlo.',
+}
+
 export const processSteps: ProcessStep[] = [
   {
     number: '01',
-    title: 'Entender',
-    icon: 'understand',
-    description: 'Escucho el problema, el contexto y para quién es el producto.',
+    title: 'Conversamos',
+    icon: 'talk',
+    description: 'Conozco tu idea, tu negocio y lo que necesitás resolver.',
   },
   {
     number: '02',
-    title: 'Diseñar',
-    icon: 'design',
-    description: 'Defino la solución, la estructura y cómo se va a usar.',
+    title: 'Definimos',
+    icon: 'define',
+    description: 'Organizamos objetivos, funcionalidades y prioridades.',
   },
   {
     number: '03',
-    title: 'Construir',
+    title: 'Desarrollamos',
     icon: 'build',
-    description: 'Desarrollo el producto, de la interfaz al funcionamiento.',
+    description: 'Construyo la solución y comparto los avances del proyecto.',
   },
   {
     number: '04',
-    title: 'Mejorar',
+    title: 'Mejoramos',
     icon: 'improve',
-    description: 'Pruebo, ajusto y dejo todo listo para usar.',
+    description: 'Probamos, revisamos y ajustamos el producto.',
   },
 ]

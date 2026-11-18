@@ -1,20 +1,26 @@
 import type { TechGroup } from '../types'
 
+export const technologiesIntro = {
+  eyebrow: 'Mis habilidades',
+  title: 'Las herramientas con las que construyo.',
+  text: 'Trabajo con diferentes tecnologías según las necesidades y características de cada proyecto.',
+}
+
 export const techGroups: TechGroup[] = [
   {
     category: 'Frontend',
-    items: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Tailwind CSS'],
+    items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
   },
   {
     category: 'Backend',
-    items: ['Laravel', 'PHP', 'C#', 'REST API'],
+    items: ['PHP', 'Laravel', 'Node.js', 'C#'],
   },
   {
-    category: 'Database',
+    category: 'Bases de datos',
     items: ['PostgreSQL', 'SQL'],
   },
   {
-    category: 'Tools',
-    items: ['Git', 'Vite'],
+    category: 'Herramientas',
+    items: ['Git', 'GitHub', 'Vite'],
   },
 ]
